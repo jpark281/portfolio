@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박지수 — Portfolio 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 메인 액센트 — 민트 그린 */
+  --sage:#2ec4a0;--sage-d:#1a9e7e;--sage-l:#d4f5eb;
+  /* 포인트 — 주황 빨강 */
+  --coral:#ff6b4a;--coral-d:#e8503a;--coral-l:#ffe0d8;
+  /* 다크 베이스 */
+  --navy:#1a2035;--navy-m:#252b3b;--navy-s:#353d52;
+  /* 배경 */
+  --bg:#f0f2f0;--bg2:#e8ebe8;--white:#fff;
+  --gray:#6b7280;--gray-l:#e5e7eb;
+  --glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.78);
+  --glass-border:rgba(255,255,255,.7);
+  --blur:blur(20px);
+  --fd:'Syne',sans-serif;--fb:'Noto Sans KR',sans-serif;--fm:'DM Mono',monospace;
+  --r:6px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--navy);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+
+/* ═══ CUSTOM CURSOR — sparkling star ══════════════ */
+#cur-star{
+  position:fixed;
+  width:30px;height:30px;
+  transform:translate(-50%,-50%) rotate(0deg);
+  pointer-events:none;
+  z-index:10002;
+  filter:
+    drop-shadow(0 0 3px rgba(255,255,255,.9))
+    drop-shadow(0 0 8px rgba(255,107,74,.75))
+    drop-shadow(0 0 18px rgba(46,196,160,.55))
+    drop-shadow(0 0 32px rgba(255,107,74,.3));
+  animation:starSpin 8s linear infinite;
+  transition:width .18s,height .18s,filter .22s;
+}
+#cur-star svg{width:100%;height:100%}
+#cur-trail{
+  position:fixed;
+  width:48px;height:48px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:10001;
+  background:radial-gradient(circle,rgba(46,196,160,.15) 0%,transparent 65%);
+  transition:width .55s cubic-bezier(.25,.46,.45,.94),height .55s;
+}
+@keyframes starSpin{
+  0%{transform:translate(-50%,-50%) rotate(0deg)}
+  100%{transform:translate(-50%,-50%) rotate(360deg)}
+}
+body.on-link #cur-star{
+  width:22px;height:22px;
+  filter:
+    drop-shadow(0 0 5px rgba(180,240,255,.98))
+    drop-shadow(0 0 12px rgba(100,210,240,.85))
+    drop-shadow(0 0 24px rgba(150,230,255,.5));
+  animation:starSpin 1.5s linear infinite;
+}
+body.on-link #cur-trail{
+  width:64px;height:64px;
+  background:radial-gradient(circle,rgba(152,200,220,.12) 0%,transparent 65%);
+}
+body.clicking #cur-star{
+  width:18px;height:18px;
+  filter:
+    drop-shadow(0 0 6px rgba(255,200,240,.98))
+    drop-shadow(0 0 14px rgba(220,150,230,.85))
+    drop-shadow(0 0 28px rgba(200,140,250,.5));
+  animation:starSpin .4s linear infinite;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(240,242,240,.7);border-bottom:1px solid rgba(255,255,255,.4);transition:all .4s}
+nav.sc{padding:.75rem 3rem;background:rgba(240,242,240,.92);box-shadow:0 4px 30px rgba(0,0,0,.06)}
+.nav-logo{font-family:var(--fd);font-weight:800;font-size:1.25rem;letter-spacing:-1px;display:flex;align-items:center;gap:6px}
+.nav-logo-dot{width:7px;height:7px;border-radius:50%;background:var(--coral)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .25s;position:relative;padding:.3rem 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--coral);transition:width .3s}
+.nav-links a:hover,.nav-links a.on{color:var(--coral)}
+.nav-links a:hover::after,.nav-links a.on::after{width:100%}
+
+/* ═══ HERO ══════════════════════════════════════════════ */
+#hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(155deg,#e2efe8 0%,#eaede8 30%,#ede8e4 65%,#e8e2de 100%)}
+#hero::before{content:'';position:absolute;inset:0;opacity:.028;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.h-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px)}
+.h-orb1{width:55vw;height:55vw;top:-15%;left:-12%;background:radial-gradient(circle,rgba(46,196,160,.28) 0%,transparent 65%);animation:orbF 16s ease-in-out infinite}
+.h-orb2{width:45vw;height:45vw;bottom:-15%;right:-8%;background:radial-gradient(circle,rgba(255,107,74,.2) 0%,transparent 65%);animation:orbF 20s ease-in-out infinite reverse}
+.h-orb3{width:30vw;height:30vw;top:30%;right:20%;background:radial-gradient(circle,rgba(46,196,160,.12) 0%,transparent 65%);animation:orbF 12s ease-in-out infinite 3s}
+@keyframes orbF{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(30px,-25px) scale(1.07)}70%{transform:translate(-20px,15px) scale(.93)}}
+.orbit-wrap{position:absolute;top:50%;transform:translateY(-50%);z-index:5}
+.orbit-wrap.ow-l{left:0;transform:translate(-48%,-50%)}
+.orbit-wrap.ow-r{right:0;transform:translate(48%,-50%)}
+.orbit-svg-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.orbit-size{width:min(72vh,640px);height:min(72vh,640px)}
+.orb-item{
+  position:absolute;top:50%;left:50%;
+  width:58px;height:58px;margin:-29px 0 0 -29px;
+  border-radius:12px;overflow:hidden;
+  background:var(--glass);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--glass-border);
+  box-shadow:0 8px 28px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.65);
+  transition:all .3s cubic-bezier(.2,.8,.3,1);
+  z-index:5;cursor:none;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;
+}
+.orb-item.deco{cursor:default;opacity:.55;pointer-events:none}
+.orb-item:not(.deco):hover,.orb-item:not(.deco).active{
+  border-color:var(--coral);
+  box-shadow:0 10px 36px rgba(232,160,180,.28),inset 0 1px 0 rgba(255,255,255,.7);
+  transform:scale(1.15) !important;z-index:20;
+}
+.oi-ico{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.oi-ico svg{width:28px;height:28px}
+.oi-lbl{font-family:var(--fm);font-size:.42rem;letter-spacing:.06em;color:var(--gray);text-align:center;display:none}
+.orb-item:not(.deco):hover .oi-lbl,.orb-item:not(.deco).active .oi-lbl{display:block}
+.hero-center{position:relative;z-index:30;width:min(360px,90vw)}
+.hero-name-wrap{text-align:center;margin-bottom:1.4rem}
+.hero-name{font-family:var(--fd);font-size:2.8rem;font-weight:800;letter-spacing:-2px;line-height:.9;color:var(--navy)}
+.hero-name em{color:var(--coral);font-style:normal}
+.hero-sub{font-family:var(--fm);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-top:.5rem}
+.hcard{
+  background:rgba(255,255,255,.72);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border-radius:14px;padding:1.6rem 1.8rem;
+  box-shadow:0 24px 80px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.8);
+  border:1px solid rgba(255,255,255,.55);
+  transition:all .45s cubic-bezier(.2,.8,.3,1);
+  position:relative;overflow:hidden;
+}
+.hcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.3) 0%,transparent 60%);pointer-events:none}
+.hcard-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.hcard-type{display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+.hcard-type-dot{width:6px;height:6px;border-radius:50%;background:var(--coral);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hcard-num{font-family:var(--fd);font-size:.75rem;font-weight:700;color:rgba(0,0,0,.12);letter-spacing:.05em}
+.hcard-thumb{
+  width:100%;aspect-ratio:16/8;border-radius:8px;margin-bottom:1rem;
+  overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#2d2640,#3d3560);
+}
+.hcard-thumb-inner{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .5s;
+}
+.hcard:hover .hcard-thumb-inner{transform:scale(1.04)}
+.mini-browser{
+  position:absolute;inset:8px;border-radius:6px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  overflow:hidden;
+}
+.mini-bar{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.07);padding:5px 9px;display:flex;align-items:center;gap:4px;}
+.mb-dot{width:6px;height:6px;border-radius:50%}
+.mb-dot.r{background:#ff5f57}.mb-dot.y{background:#febc2e}.mb-dot.g{background:#28c840}
+.mb-url{margin-left:6px;font-family:var(--fm);font-size:.4rem;color:rgba(255,255,255,.25);flex:1;background:rgba(255,255,255,.06);border-radius:2px;padding:1px 6px}
+.mini-body{padding:7px 8px}
+.mb-row{height:7px;background:rgba(255,255,255,.06);border-radius:2px;margin-bottom:5px}
+.mb-row.w60{width:60%}.mb-row.w40{width:40%}
+.mb-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:6px}
+.mb-card{height:22px;background:rgba(255,255,255,.04);border-radius:3px;border:1px solid rgba(255,255,255,.06)}
+.hcard-title{font-family:var(--fd);font-size:1.25rem;font-weight:700;letter-spacing:-.5px;color:var(--navy);margin-bottom:.35rem}
+.hcard-desc{font-size:.8rem;line-height:1.65;color:var(--gray);margin-bottom:.9rem}
+.hcard-techs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.hcard-tech{padding:.22rem .65rem;border-radius:20px;font-family:var(--fm);font-size:.58rem;font-weight:500;background:rgba(46,196,160,.12);color:var(--sage-d);border:1px solid rgba(46,196,160,.2)}
+.hcard-btns{display:flex;gap:.5rem}
+.hbtn{flex:1;padding:.6rem .8rem;border-radius:50px;font-family:var(--fd);font-weight:600;font-size:.73rem;letter-spacing:.3px;border:none;cursor:none;transition:all .28s;text-align:center;text-decoration:none;display:block;}
+.hbtn.primary{background:var(--navy);color:var(--white)}
+.hbtn.primary:hover{background:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,180,.35)}
+.hbtn.ghost{background:transparent;color:var(--navy);border:1.5px solid rgba(0,0,0,.12)}
+.hbtn.ghost:hover{border-color:var(--coral);color:var(--coral)}
+.hero-side{position:absolute;z-index:25;border-radius:12px;overflow:hidden;opacity:0;transform:scale(.88);transition:all .45s cubic-bezier(.2,.8,.3,1);pointer-events:none;box-shadow:0 20px 60px rgba(0,0,0,.1);border:1px solid rgba(255,255,255,.5);backdrop-filter:var(--blur);display:flex;align-items:center;justify-content:center;}
+.hero-side.sl{right:calc(50% + 200px)}
+.hero-side.sr{left:calc(50% + 200px);align-items:flex-start!important;justify-content:flex-start!important;overflow:visible}
+.hero-side.show{opacity:1;transform:scale(1)}
+.hero-dots{position:absolute;bottom:7.5rem;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:center;z-index:30}
+.hdot{width:7px;height:7px;border-radius:50%;background:rgba(0,0,0,.1);cursor:none;transition:all .3s;border:1px solid rgba(255,255,255,.3)}
+.hdot.on{background:var(--coral);transform:scale(1.4);border-color:transparent}
+.hdot-ct{font-family:var(--fm);font-size:.6rem;color:var(--gray);margin-left:.7rem}
+.scroll-ind{position:absolute;bottom:2rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.3rem;animation:scrollBob 2s ease-in-out infinite;z-index:30}
+.scroll-ind span{font-family:var(--fm);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gray)}
+.scroll-arr{width:13px;height:13px;border-right:2px solid var(--coral);border-bottom:2px solid var(--coral);transform:rotate(45deg)}
+@keyframes scrollBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.side-lbl{position:absolute;top:50%;font-family:var(--fm);font-size:.6rem;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--gray);writing-mode:vertical-lr;z-index:30;opacity:.35}
+.side-lbl.sll{left:22px;transform:translateY(-50%) rotate(180deg)}
+.side-lbl.slr{right:22px;transform:translateY(-50%)}
+
+/* ═══ HERO EXTRAS ══════════════════════════════════ */
+/* 타이핑 텍스트 */
+.hero-typing-wrap{
+  position:absolute;top:2.8rem;left:50%;transform:translateX(-50%);
+  z-index:30;text-align:center;pointer-events:none;
+}
+.hero-typing{
+  font-family:var(--fm);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gray);opacity:.7;
+  white-space:nowrap;overflow:hidden;
+  border-right:2px solid var(--coral);
+  width:0;animation:typeIn 2.8s steps(30) .6s forwards, cursorBlink 1s step-end 3.4s infinite;
+}
+@keyframes typeIn{to{width:22ch}}
+@keyframes cursorBlink{0%,100%{border-color:var(--coral)}50%{border-color:transparent}}
+
+/* 플로팅 기술 배지 — 비활성화 */
+
+/* 하단 통계 바 */
+.hero-stats-bar{
+  position:absolute;bottom:3.2rem;left:50%;transform:translateX(-50%);
+  z-index:30;display:flex;align-items:center;gap:0;
+  background:rgba(255,255,255,.65);backdrop-filter:var(--blur);
+  border:1px solid rgba(255,255,255,.7);border-radius:50px;
+  padding:.55rem 1.8rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.8);
+}
+.hs-item{display:flex;flex-direction:column;align-items:center;padding:0 1.4rem}
+.hs-item+.hs-item{border-left:1px solid rgba(0,0,0,.07)}
+.hs-num{font-family:var(--fd);font-size:1.25rem;font-weight:800;color:var(--navy);line-height:1}
+.hs-lbl{font-family:var(--fm);font-size:.5rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gray);margin-top:3px}
+section{padding:5rem 3rem}
+.sec-tag{font-family:var(--fm);font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--coral);margin-bottom:.6rem;display:flex;align-items:center;gap:.8rem}
+.sec-tag::before{content:'';width:28px;height:2px;background:var(--coral);border-radius:2px;flex-shrink:0}
+.sec-h{font-family:var(--fd);font-size:2.4rem;font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:1.5rem}
+
+/* ABOUT */
+#about{background:var(--bg)}
+.ab-wrap{max-width:900px;margin:0 auto;display:flex;gap:3rem;align-items:center}
+.ab-av{flex-shrink:0;width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(46,196,160,.4),rgba(39,176,139,.3));backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(46,196,160,.18),inset 0 1px 0 rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.4);flex-shrink:0;overflow:hidden}
+.ab-txt p{font-size:.95rem;line-height:1.9;color:#4a5568;margin-bottom:.7rem}
+.ab-stats{display:flex;gap:2.5rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(0,0,0,.06)}
+.stn{font-family:var(--fd);font-size:1.9rem;font-weight:800;color:var(--coral)}
+.stl{font-family:var(--fm);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-top:2px}
+
+/* VALUES */
+#values{background:linear-gradient(155deg,#1e2535 0%,#252b3b 50%,#2a3045 100%);color:var(--white);position:relative;overflow:hidden}
+#values::before{content:'';position:absolute;width:35vw;height:35vw;top:-10%;right:-5%;border-radius:50%;background:radial-gradient(circle,rgba(46,196,160,.07),transparent 65%);pointer-events:none}
+#values::after{content:'';position:absolute;width:30vw;height:30vw;bottom:-10%;left:-5%;border-radius:50%;background:radial-gradient(circle,rgba(255,107,74,.06),transparent 65%);pointer-events:none}
+.val-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+#values .sec-tag{color:var(--sage)}
+#values .sec-tag::before{background:var(--sage)}
+#values .sec-h{color:var(--white)}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.5rem}
+.val-card{padding:1.5rem;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.07);transition:all .3s;backdrop-filter:blur(12px)}
+.val-card:hover{transform:translateY(-4px);border-color:rgba(184,164,212,.22);background:rgba(255,255,255,.07);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.val-ico{width:44px;height:44px;margin-bottom:.8rem}
+.val-ico svg{width:44px;height:44px}
+.val-name{font-family:var(--fd);font-size:.92rem;font-weight:700;margin-bottom:.3rem;color:var(--white)}
+.val-desc{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.65}
+
+/* SKILLS */
+#skills{background:var(--bg);padding:4rem 3rem 2rem;overflow:visible}
+.sk-inner{max-width:1100px;margin:0 auto}
+.sk-track-wrap{overflow:hidden;margin-top:2rem;padding:12px 0 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.sk-track{display:flex;gap:1rem;width:max-content;animation:skScroll 48s linear infinite}
+.sk-track:hover{animation-play-state:paused}
+@keyframes skScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sk-pill{flex-shrink:0;display:flex;align-items:center;gap:.55rem;padding:.5rem 1.05rem;border-radius:50px;background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:0 4px 18px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.65);border:1px solid var(--glass-border);transition:all .3s;cursor:none}
+.sk-pill:hover{border-color:var(--coral);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
+.sk-pill-ico{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sk-pill-ico svg{width:18px;height:18px}
+.sk-pill-name{font-family:var(--fm);font-size:.72rem;color:#4a5568;letter-spacing:.03em;white-space:nowrap}
+
+/* PROJECTS */
+#projects{background:var(--bg)}
+.pj-inner{max-width:1100px;margin:0 auto}
+.pj-lb{font-family:var(--fd);font-size:1rem;font-weight:700;margin:2rem 0 1rem;display:flex;align-items:center;gap:.7rem;color:var(--navy)}
+.pj-lb::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.07)}
+.p-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.pc{border-radius:12px;overflow:hidden;background:rgba(255,255,255,.65);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);transition:all .38s cubic-bezier(.2,.8,.3,1);cursor:none;box-shadow:0 4px 24px rgba(0,0,0,.04),inset 0 1px 0 rgba(255,255,255,.6)}
+.pc:hover{transform:translateY(-7px);box-shadow:0 22px 60px rgba(0,0,0,.12);border-color:rgba(255,255,255,.8)}
+.pc-thumb{width:100%;aspect-ratio:16/10;position:relative;overflow:hidden}
+.pc-thumb-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .5s}
+.pc:hover .pc-thumb-bg{transform:scale(1.05)}
+.pc-thumb-ov{position:absolute;inset:0;background:rgba(20,25,40,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:5}
+.pc:hover .pc-thumb-ov{opacity:1}
+.pc-thumb-ov span{color:var(--white);font-family:var(--fm);font-size:.68rem;letter-spacing:.1em;padding:.45rem 1.1rem;border:1.5px solid rgba(255,255,255,.4);border-radius:50px}
+.pc-body{padding:.9rem 1.05rem 1.05rem}
+.pc-tags{display:flex;gap:.3rem;margin-bottom:.45rem;flex-wrap:wrap}
+.pc-tag{font-family:var(--fm);font-size:.55rem;text-transform:uppercase;letter-spacing:.05em;padding:.18rem .5rem;border-radius:3px;background:rgba(184,164,212,.13);color:var(--sage-d)}
+.pc-tag.alt{background:rgba(232,160,180,.1);color:var(--coral-d)}
+.pc-title{font-family:var(--fd);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
+.pc-desc{font-size:.77rem;color:var(--gray);line-height:1.5}
+.t1{background:linear-gradient(135deg,#c8efe3,#a5e0cc)}
+.t2{background:linear-gradient(135deg,#ffddd5,#ffbfad)}
+.t3{background:linear-gradient(135deg,#d5d0ee,#bdb5e3)}
+.t4{background:linear-gradient(135deg,#d0e8f5,#b0d4ec)}
+.t5{background:linear-gradient(135deg,#d5eedd,#b5e0c0)}
+.t6{background:linear-gradient(135deg,#f5ddd0,#ecc5b0)}
+
+/* PROJECT THUMB SVG */
+.pc-svg-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+
+/* ═══ MODAL — Apple-style ════════════════════════════════ */
+:root{--apple-font:-apple-system,BlinkMacSystemFont,"SF Pro KR","SF Pro Display","Segoe UI",Roboto,sans-serif}
+
+#pmodal{
+  position:fixed;inset:0;z-index:3000;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.38);
+  backdrop-filter:blur(32px) saturate(180%);
+  -webkit-backdrop-filter:blur(32px) saturate(180%);
+  opacity:0;pointer-events:none;
+  transition:opacity .28s cubic-bezier(.4,0,.2,1);
+}
+#pmodal.open{opacity:1;pointer-events:all}
+
+.pm-box{
+  font-family:var(--apple-font);
+  width:100%;max-width:940px;max-height:86vh;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(48px) saturate(220%);
+  -webkit-backdrop-filter:blur(48px) saturate(220%);
+  border-radius:20px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transform:scale(.95) translateY(14px);
+  transition:transform .44s cubic-bezier(.16,1,.3,1);
+  border:.5px solid rgba(255,255,255,.4);
+  box-shadow:
+    0 0 0 .5px rgba(0,0,0,.1),
+    0 2px 4px rgba(0,0,0,.04),
+    0 16px 40px rgba(0,0,0,.1),
+    0 48px 96px rgba(0,0,0,.14);
+}
+#pmodal.open .pm-box{transform:scale(1) translateY(0)}
+
+/* 헤더 */
+.pm-hdr{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:26px 30px 0;flex-shrink:0;gap:16px;
+}
+.pm-hdr-l{display:flex;flex-direction:column;gap:8px}
+.pm-badge{
+  font-family:var(--fm);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--coral);padding:4px 10px;border-radius:5px;
+  background:rgba(255,107,74,.08);border:1px solid rgba(255,107,74,.14);
+  width:fit-content;
+}
+.pm-title{
+  font-family:var(--fd);font-size:2rem;font-weight:700;
+  letter-spacing:-0.03em;color:#1d1d1f;line-height:.95;
+}
+.pm-close{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(0,0,0,.06);border:none;cursor:none;
+  display:flex;align-items:center;justify-content:center;
+  color:#999;font-size:.72rem;
+  transition:all .18s;flex-shrink:0;margin-top:2px;
+}
+.pm-close:hover{background:rgba(0,0,0,.11);color:#333}
+
+/* 탭 */
+.pm-tabs{
+  display:flex;flex-shrink:0;
+  padding:0 30px;gap:20px;
+  border-bottom:1px solid rgba(0,0,0,.05);
+  margin-top:4px;
+}
+.pm-tab{
+  font-family:var(--apple-font);font-size:.85rem;
+  font-weight:500;letter-spacing:-0.01em;
+  text-transform:none;
+  padding:14px 0;color:rgba(0,0,0,.35);cursor:none;
+  border-bottom:none;
+  position:relative;transition:color .18s;
+  display:flex;align-items:center;gap:6px;
+}
+.pm-tab::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:100%;height:2px;
+  background:#1d1d1f;
+  transform:scaleX(0);
+  transition:transform .25s cubic-bezier(.4,0,.2,1);
+  border-radius:2px 2px 0 0;
+}
+.pm-tab:hover{color:rgba(0,0,0,.65)}
+.pm-tab.on{color:#1d1d1f}
+.pm-tab.on::after{transform:scaleX(1)}
+
+/* 패널 */
+.pm-panels{flex:1;overflow-y:auto}
+.pm-panels::-webkit-scrollbar{width:0}
+.pm-panel{display:none;padding:26px 30px 34px}
+
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.pm-panel.on{display:block;animation:fadeInUp .35s cubic-bezier(.16,1,.3,1) forwards}
+
+/* Overview 그리드 */
+.pm-ov-grid{display:grid;grid-template-columns:1fr 230px;gap:26px}
+
+.pm-ov-desc{
+  font-size:.9rem;line-height:1.85;
+  color:rgba(0,0,0,.52);
+  margin-bottom:22px;letter-spacing:-.01em;
+}
+.pm-ov-h{
+  font-family:var(--fm);font-size:.47rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(0,0,0,.22);margin-bottom:10px;
+}
+.pm-ov-list{display:flex;flex-direction:column;gap:5px;margin-bottom:22px}
+.pm-ov-li{
+  display:flex;align-items:center;gap:10px;
+  font-size:.85rem;line-height:1.6;color:rgba(0,0,0,.62);
+  padding:9px 13px;
+  background:rgba(0,0,0,.022);
+  border-radius:8px;transition:background .15s;
+  letter-spacing:-.01em;
+}
+.pm-ov-li:hover{background:rgba(0,0,0,.038)}
+.pm-ov-li::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--coral);flex-shrink:0;opacity:.65;
+}
+
+/* 기술 태그 */
+.pm-ov-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pm-ov-tag{
+  padding:5px 11px;
+  background:rgba(0,0,0,.035);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:6px;
+  font-family:var(--fm);font-size:.55rem;
+  color:rgba(0,0,0,.48);letter-spacing:.02em;
+  transition:all .15s;
+}
+.pm-ov-tag:hover{
+  background:rgba(46,196,160,.09);
+  border-color:rgba(46,196,160,.18);
+  color:var(--sage-d);
+}
+
+/* 사이드바 */
+.pm-sidebar{display:flex;flex-direction:column;gap:6px}
+.pm-sc{
+  background:rgba(255,255,255,.45);
+  border-radius:10px;padding:12px 14px;
+  border:1px solid rgba(0,0,0,.04);
+  box-shadow:0 1px 2px rgba(0,0,0,.02);
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+}
+.pm-sc:hover{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.pm-sc-l{
+  font-family:var(--fm);font-size:.44rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(0,0,0,.26);margin-bottom:4px;
+}
+.pm-sc-v{
+  font-family:var(--apple-font);font-size:.88rem;
+  font-weight:600;color:#1d1d1f;letter-spacing:-.02em;
+}
+
+/* GitHub 버튼 */
+.pm-s-link{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px;margin-top:4px;
+  background:#000;border:none;border-radius:10px;
+  text-decoration:none;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+}
+.pm-s-link:hover{background:#1a1a1a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.22)}
+.pm-s-ico{
+  width:26px;height:26px;border-radius:6px;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fm);font-size:.5rem;font-weight:600;
+  color:rgba(255,255,255,.55);flex-shrink:0;
+}
+.pm-s-type{
+  font-family:var(--fm);font-size:.44rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.32);margin-bottom:2px;
+}
+.pm-s-val{
+  font-family:var(--apple-font);font-size:.9rem;
+  font-weight:600;color:#fff;letter-spacing:-0.02em;
+}
+.pm-s-arr{display:none}
+.pm-vid-wrap{background:var(--navy);border-radius:12px;overflow:hidden;aspect-ratio:16/9;position:relative;margin-bottom:16px}
+.pm-vid-mock{position:absolute;inset:0;background:linear-gradient(145deg,#0d1525,#1a2035);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.vm-browser{width:68%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:9px;overflow:hidden}
+.vm-bar{background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.07);padding:7px 11px;display:flex;align-items:center;gap:5px}
+.vm-dot{width:7px;height:7px;border-radius:50%}
+.vm-dot.r{background:#ff5f57}.vm-dot.y{background:#febc2e}.vm-dot.g{background:#28c840}
+.vm-url{margin-left:7px;flex:1;background:rgba(255,255,255,.06);border-radius:2px;padding:2px 8px;font-family:var(--fm);font-size:.45rem;color:rgba(255,255,255,.22)}
+.vm-body{padding:10px 12px}
+.vm-row{height:8px;background:rgba(255,255,255,.07);border-radius:2px;margin-bottom:5px}
+.vm-row.w55{width:55%}.vm-row.w35{width:35%}
+.vm-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:6px}
+.vm-card{height:28px;background:rgba(255,255,255,.04);border-radius:4px;border:1px solid rgba(255,255,255,.06)}
+.vm-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(13,21,37,.5);backdrop-filter:blur(3px)}
+.vm-play{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.4);cursor:none;transition:transform .2s}
+.vm-play:hover{transform:scale(1.08)}
+.vm-play svg{width:20px;height:20px;fill:var(--navy);margin-left:3px}
+.vm-play-lbl{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.pm-vid-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pm-vid-pill{padding:5px 13px;background:#f3f4f6;border:1px solid rgba(0,0,0,.06);border-radius:999px;font-family:var(--fm);font-size:.57rem;color:var(--gray)}
+.pm-code-wrap{background:#161617;border-radius:14px;overflow:hidden;margin-bottom:14px}
+.pm-code-top{background:transparent;border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.pm-code-dots{display:flex;gap:5px}
+.pm-code-dot{width:10px;height:10px;border-radius:50%}
+.pm-code-dot.r{background:#ff5f57}.pm-code-dot.y{background:#febc2e}.pm-code-dot.g{background:#28c840}
+.pm-code-fname{font-family:var(--fm);font-size:.57rem;font-weight:500;color:rgba(255,255,255,.5);letter-spacing:.04em}
+.pm-copy-btn{font-family:var(--fm);font-size:.53rem;letter-spacing:.08em;color:#fff;background:rgba(255,255,255,.1);border:none;border-radius:6px;padding:5px 12px;cursor:none;transition:all .18s}
+.pm-copy-btn:hover{background:rgba(255,255,255,.18)}
+.pm-copy-btn.ok{color:#28c840;background:rgba(40,200,64,.12)}
+.pm-code-scroll{overflow-x:auto}
+pre{padding:18px 20px;font-family:var(--fm);font-size:.74rem;line-height:1.8;color:#e6edf3;white-space:pre}
+.kw{color:#ff7b72}.cl{color:#ffa657}.fn{color:#d2a8ff}.st{color:#a5d6ff}.cm{color:#8b949e;font-style:italic}.an{color:#79c0ff}.num{color:#f8c553}
+.pm-code-note{font-size:.82rem;line-height:1.9;color:#666;padding:4px 0}
+
+/* EXPERIENCE */
+#experience{background:linear-gradient(135deg,#eef4f0 0%,#e8f3ec 50%,#f3f0e9 100%)}
+.ex-inner{max-width:900px;margin:0 auto}
+.tl{position:relative;margin-top:2rem;padding-left:2.8rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--sage),var(--coral));border-radius:2px}
+.tli{position:relative;margin-bottom:1.6rem;padding:1.3rem 1.4rem;background:rgba(255,255,255,.65);backdrop-filter:var(--blur);border-radius:10px;border:1px solid var(--glass-border);box-shadow:0 4px 22px rgba(0,0,0,.04),inset 0 1px 0 rgba(255,255,255,.5);transition:all .28s}
+.tli:hover{transform:translateX(5px);box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.tl-dot{position:absolute;left:-2.85rem;top:1.5rem;width:12px;height:12px;border-radius:50%;background:var(--coral);border:3px solid var(--bg);margin-left:-5px;box-shadow:0 0 0 3px rgba(232,160,180,.25)}
+.tl-date{font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;color:var(--coral);text-transform:uppercase;margin-bottom:.25rem}
+.tl-title{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.tl-org{font-size:.8rem;color:var(--gray);margin-bottom:.3rem;font-family:var(--fm)}
+.tl-desc{font-size:.8rem;color:#555;line-height:1.65}
+
+/* CONTACT */
+#contact{background:linear-gradient(155deg,#e2efe8 0%,rgba(46,196,160,.14) 50%,rgba(255,107,74,.09) 100%);text-align:center;position:relative;overflow:hidden}
+.ct-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.ct-desc{font-size:.95rem;color:#555;max-width:440px;margin:0 auto 2rem;line-height:1.75}
+.ct-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.5rem}
+.ct-link{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.4rem;background:rgba(255,255,255,.65);border:1px solid var(--glass-border);border-radius:50px;backdrop-filter:var(--blur);font-size:.83rem;color:#555;text-decoration:none;transition:all .25s;box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.ct-link:hover{border-color:var(--coral);color:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,180,.15)}
+
+footer{background:var(--navy);padding:1.2rem 3rem;text-align:center}
+footer p{font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.22);letter-spacing:.06em}
+
+.stb{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--white);border:none;cursor:none;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.stb.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.stb:hover{background:var(--coral);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,180,.35)}
+
+.fu{opacity:1;transform:translateY(0);transition:opacity .7s,transform .7s}
+.fu.vis{opacity:1;transform:none}
+.fu.d1{transition-delay:.1s}.fu.d2{transition-delay:.2s}.fu.d3{transition-delay:.3s}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}nav.sc{padding:.7rem 1.5rem}
+  section{padding:3.5rem 1.5rem}
+  .orbit-wrap{display:none}.hero-side{display:none}.side-lbl{display:none}.scroll-ind{display:none}
+  .hero-center{width:88vw}
+  .ab-wrap{flex-direction:column;text-align:center}.ab-stats{justify-content:center}
+  .val-grid,.p-grid3{grid-template-columns:1fr}
+  .pm-ov-grid{grid-template-columns:1fr}
+  .ex-inner{padding:0}
+}
+
+/* NCC Dashboard */
+
+@keyframes truck-drive{0%{transform:translateX(-120px);opacity:0}6%{opacity:1}92%{opacity:1}100%{transform:translateX(780px);opacity:0}}
+@keyframes wheel-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes dash-scroll{from{stroke-dashoffset:0}to{stroke-dashoffset:-48}}
+@keyframes fade-up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bar-in{from{width:0}}
+@keyframes case-open{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+.wrap{font-family:var(--font-sans);background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+
+/* scene */
+.scene{position:relative;height:68px;background:#C9E8F5;overflow:hidden}
+.scene-ground{position:absolute;bottom:0;left:0;right:0;height:26px;background:#7BAF7B}
+.scene-road{position:absolute;bottom:4px;left:0;right:0;height:17px;background:#444}
+.scene-road-line{position:absolute;top:50%;left:0;width:200%;height:2px;transform:translateY(-50%)}
+.scene-road-line svg line{animation:dash-scroll .75s linear infinite}
+.truck{position:absolute;bottom:12px;display:flex;align-items:flex-end;animation:truck-drive 5s ease-in-out infinite}
+.truck:nth-child(4){animation-delay:1.8s}.truck:nth-child(5){animation-delay:3.5s}
+.tk-body{height:15px;border-radius:3px 0 0 2px}.tk-cab{height:20px;border-radius:3px 3px 2px 0;position:relative}
+.tk-win{position:absolute;top:3px;right:2px;width:7px;height:5px;background:rgba(201,232,245,.85);border-radius:1px}
+.tk-axle{position:absolute;bottom:-6px;display:flex;gap:22px;left:3px}
+.tk-wheel{width:8px;height:8px;border-radius:50%;border:2px solid #888;background:#2C2C2A;animation:wheel-spin .32s linear infinite}
+.t-blue .tk-body{width:38px;background:#85B7EB}.t-blue .tk-cab{width:14px;background:#185FA5}
+.t-green .tk-body{width:42px;background:#97C459}.t-green .tk-cab{width:14px;background:#3B6D11}
+.t-pink .tk-body{width:36px;background:#ED93B1}.t-pink .tk-cab{width:14px;background:#993556}
+
+/* header + kpi */
+.header{padding:12px 16px 0;display:flex;align-items:baseline;justify-content:space-between}
+.header-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.header-sub{font-size:11px;color:var(--color-text-secondary)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:10px 16px 0}
+.kpi{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:9px 8px;text-align:center;border:.5px solid var(--color-border-tertiary)}
+.kpi-val{font-size:22px;font-weight:500;line-height:1.1;color:var(--color-text-primary)}
+.kpi-val.green{color:#27500A}.kpi-val.amber{color:#633806}.kpi-val.blue{color:#0C447C}
+.kpi-lbl{font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+
+/* tabs */
+.tabs{display:flex;margin:12px 16px 0;border-bottom:.5px solid var(--color-border-tertiary);overflow-x:auto}
+.tab{padding:7px 11px;font-size:12px;font-weight:400;color:var(--color-text-secondary);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-.5px;transition:color .15s,border-color .15s;display:flex;align-items:center;gap:5px;user-select:none;white-space:nowrap;flex-shrink:0}
+.tab:first-child{padding-left:0}.tab.active{color:var(--color-text-primary);font-weight:500;border-bottom-color:#185FA5}
+.tab-pip{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+.panel{display:none;animation:fade-up .18s ease}
+.panel.active{display:block}
+
+/* ── SUMMARY ── */
+.sum-wrap{padding:14px 16px 16px}
+.cov-list{display:flex;flex-direction:column;gap:9px}
+.cov-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.cov-label{font-size:12px;font-weight:500;color:var(--color-text-primary);display:flex;align-items:center;gap:6px}
+.cov-count{font-size:11px;color:var(--color-text-secondary)}
+.cov-track{height:5px;background:var(--color-border-tertiary);border-radius:3px;overflow:hidden}
+.cov-fill{height:100%;border-radius:3px;animation:bar-in .6s ease both}
+.sum-footer{margin-top:11px;font-size:11px;color:var(--color-text-secondary);border-top:.5px solid var(--color-border-tertiary);padding-top:9px}
+
+/* ── PANEL LAYOUT: viz top, list below ── */
+.panel-inner{display:flex;flex-direction:column}
+.viz-box{padding:14px 16px 10px;border-bottom:.5px solid var(--color-border-tertiary);background:var(--color-background-secondary)}
+.viz-title{font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;letter-spacing:.3px}
+.list-box{padding:12px 16px 16px}
+
+/* test accordion */
+.test-list{display:flex;flex-direction:column;gap:5px}
+.test-item{border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;transition:border-color .15s}
+.test-item.open{border-color:var(--color-border-secondary)}
+.test-item.skip-border{border-color:#BA7517}
+.test-header{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;background:var(--color-background-secondary);transition:background .12s;user-select:none}
+.test-header:hover{background:var(--color-background-tertiary)}
+.test-pip{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.test-body{flex:1;min-width:0}
+.test-name{font-size:12px;font-weight:500;color:var(--color-text-primary);font-family:var(--font-mono)}
+.test-desc{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.test-meta{font-size:11px;color:var(--color-text-secondary);white-space:nowrap;margin-left:auto;padding-right:6px}
+.badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+.badge-pass{background:#EAF3DE;color:#27500A}
+.badge-skip{background:#FAEEDA;color:#633806}
+.chevron{font-size:9px;color:var(--color-text-secondary);transition:transform .2s;flex-shrink:0}
+.test-item.open .chevron{transform:rotate(180deg)}
+.case-list{display:none;flex-direction:column;padding:0 10px 9px;background:var(--color-background-primary)}
+.test-item.open .case-list{display:flex;animation:case-open .18s ease}
+.case-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.case-row:last-child{border-bottom:none}
+.case-num{font-size:10px;font-family:var(--font-mono);color:var(--color-text-secondary);min-width:22px;padding-top:1px}
+.case-body{flex:1}
+.case-input{font-size:11px;font-family:var(--font-mono);color:var(--color-text-primary)}
+.case-expected{font-size:10px;color:var(--color-text-secondary);margin-top:1px}
+.case-badge{font-size:9px;font-weight:500;padding:1px 6px;border-radius:8px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.case-pass{background:#EAF3DE;color:#27500A}
+.case-skip{background:#FAEEDA;color:#633806}
+.section-note{font-size:11px;color:var(--color-text-secondary);margin-bottom:9px;padding:6px 9px;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;border-left:2.5px solid #185FA5}
+
+/* ── WHITEBOX VIZ: mini 25x25 grid ── */
+.grid-wrap{display:flex;gap:12px;align-items:flex-start}
+.mini-grid{display:grid;grid-template-columns:repeat(25,7px);grid-template-rows:repeat(25,7px);gap:.5px;flex-shrink:0}
+.gc{width:7px;height:7px}
+.gc.empty{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary)}
+.gc.bldg{background:#2C2C2A}
+.gc.blue{background:#85B7EB}
+.gc.green{background:#97C459}
+.gc.yellow{background:#F7C948}
+.gc.highlight{background:#E24B4A;border-radius:1px;animation:pulse-dot 1s ease infinite}
+.grid-legend{display:flex;flex-direction:column;gap:5px;padding-top:2px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--color-text-secondary)}
+.leg-swatch{width:10px;height:10px;border-radius:1px;flex-shrink:0}
+
+/* ── BLACKBOX VIZ: I/O flow ── */
+.flow-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.flow-node{padding:5px 10px;border-radius:var(--border-radius-md);font-size:11px;font-weight:500;border:.5px solid}
+.flow-node.input{background:#E6F1FB;color:#0C447C;border-color:#85B7EB}
+.flow-node.func{background:#EAF3DE;color:#27500A;border-color:#97C459}
+.flow-node.out-ok{background:#EAF3DE;color:#27500A;border-color:#C0DD97}
+.flow-node.out-err{background:#FAEEDA;color:#633806;border-color:#FAC775}
+.flow-arr{color:var(--color-text-secondary);font-size:14px;flex-shrink:0}
+.flow-rows{display:flex;flex-direction:column;gap:7px}
+
+/* ── INTEGRATION VIZ: module diagram ── */
+.mod-diag{display:flex;align-items:center;justify-content:center;gap:0}
+.mod-box{border:.5px solid;border-radius:var(--border-radius-md);padding:8px 12px;text-align:center;min-width:90px}
+.mod-box.truck{background:#E6F1FB;border-color:#85B7EB;color:#0C447C}
+.mod-box.mapping{background:#EAF3DE;border-color:#97C459;color:#27500A}
+.mod-box.result{background:#FAEEDA;border-color:#FAC775;color:#633806}
+.mod-title{font-size:12px;font-weight:500}
+.mod-sub{font-size:10px;opacity:.8;margin-top:2px}
+.mod-arrow{display:flex;flex-direction:column;align-items:center;padding:0 6px}
+.mod-arrow-line{width:32px;height:1px;background:var(--color-border-secondary)}
+.mod-arrow-label{font-size:9px;color:var(--color-text-secondary);margin-top:2px;white-space:nowrap}
+.flow-badge{display:inline-block;font-size:9px;padding:1px 5px;border-radius:6px;margin-top:3px}
+
+/* ── ACCEPTANCE VIZ: city mini-map route ── */
+.city-wrap{position:relative;display:inline-block}
+.city-svg{display:block}
+
+</style>
+</head>
+<body>
+
+<!-- 커스텀 커서 -->
+<div id="cur-trail"></div>
+<div id="cur-star">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 큰 세로축 -->
+    <path d="M16 0 C15.2 0 14.5 5.5 14.2 9.5 C13.0 11.0 11.0 13.0 9.5 14.2 C5.5 14.5 0 15.2 0 16 C0 16.8 5.5 17.5 9.5 17.8 C11.0 19.0 13.0 21.0 14.2 22.5 C14.5 26.5 15.2 32 16 32 C16.8 32 17.5 26.5 17.8 22.5 C19.0 21.0 21.0 19.0 22.5 17.8 C26.5 17.5 32 16.8 32 16 C32 15.2 26.5 14.5 22.5 14.2 C21.0 13.0 19.0 11.0 17.8 9.5 C17.5 5.5 16.8 0 16 0Z"
+      fill="url(#sg)"/>
+    <!-- 작은 대각 별 -->
+    <path d="M16 9 C15.7 9 15.4 11.5 15.3 12.8 C14.5 13.5 13.5 14.5 12.8 15.3 C11.5 15.4 9 15.7 9 16 C9 16.3 11.5 16.6 12.8 16.7 C13.5 17.5 14.5 18.5 15.3 19.2 C15.4 20.5 15.7 23 16 23 C16.3 23 16.6 20.5 16.7 19.2 C17.5 18.5 18.5 17.5 19.2 16.7 C20.5 16.6 23 16.3 23 16 C23 15.7 20.5 15.4 19.2 15.3 C18.5 14.5 17.5 13.5 16.7 12.8 C16.6 11.5 16.3 9 16 9Z"
+      fill="white" opacity=".6"/>
+    <!-- 중심 코어 -->
+    <circle cx="16" cy="16" r="2.5" fill="white" opacity=".95"/>
+    <defs>
+      <radialGradient id="sg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="white" stop-opacity=".98"/>
+        <stop offset="55%" stop-color="#b8f0e0" stop-opacity=".9"/>
+        <stop offset="100%" stop-color="#ffc8b0" stop-opacity=".7"/>
+      </radialGradient>
+    </defs>
+  </svg>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">박지수<div class="nav-logo-dot"></div></div>
+  <div class="nav-links">
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- 타이핑 텍스트 -->
+  <div class="hero-typing-wrap">
+    <div class="hero-typing">Full-Stack Developer · Seoul</div>
+  </div>
+
+
+  <div class="h-orb h-orb1"></div>
+  <div class="h-orb h-orb2"></div>
+  <div class="h-orb h-orb3"></div>
+  <div class="side-lbl sll">Projects</div>
+  <div class="side-lbl slr">Tech Stack</div>
+  <div class="orbit-wrap ow-l" id="owL">
+    <svg class="orbit-svg-ring orbit-size" id="svgRingL" viewBox="0 0 640 640" fill="none">
+      <circle cx="320" cy="320" r="260" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+      <circle cx="320" cy="320" r="190" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 6"/>
+    </svg>
+  </div>
+  <div class="hero-side sl" id="sideL"></div>
+  <div class="hero-center">
+    <div class="hcard">
+      <div class="hcard-bar">
+        <div class="hcard-type"><div class="hcard-type-dot"></div><span id="cType">Main Project</span></div>
+        <div class="hcard-num" id="cNum">01 / 06</div>
+      </div>
+      <div class="hcard-thumb">
+        <div class="hcard-thumb-inner" id="cThumb">
+          <div class="mini-browser">
+            <div class="mini-bar">
+              <div class="mb-dot r"></div><div class="mb-dot y"></div><div class="mb-dot g"></div>
+              <div class="mb-url" id="cUrl">ncc-delivery.app</div>
+            </div>
+            <div class="mini-body">
+              <div class="mb-row w60"></div><div class="mb-row w40"></div>
+              <div class="mb-cards"><div class="mb-card"></div><div class="mb-card"></div><div class="mb-card"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hcard-title" id="cTitle">NCC Delivery System</div>
+      <div class="hcard-desc" id="cDesc">C언어 기반 도심 배송 최적화 시스템</div>
+      <div class="hcard-techs" id="cTechs"><span class="hcard-tech">C / C++</span></div>
+      <div class="hcard-btns">
+        <button class="hbtn primary" id="cBtnModal">상세 보기</button>
+        <a class="hbtn ghost" id="cBtnGH" href="https://github.com/jpark281" target="_blank">GitHub →</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-side sr" id="sideR"></div>
+  <div class="orbit-wrap ow-r" id="owR">
+    <svg class="orbit-svg-ring orbit-size" id="svgRingR" viewBox="0 0 640 640" fill="none">
+      <circle cx="320" cy="320" r="260" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+      <circle cx="320" cy="320" r="190" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 6"/>
+    </svg>
+  </div>
+  <div class="hero-dots" id="hDots"></div>
+
+  <!-- 하단 통계 바 -->
+  <div class="hero-stats-bar">
+    <div class="hs-item"><div class="hs-num">3</div><div class="hs-lbl">Projects</div></div>
+    <div class="hs-item"><div class="hs-num">17</div><div class="hs-lbl">Skills</div></div>
+    <div class="hs-item"><div class="hs-num">3</div><div class="hs-lbl">Teams</div></div>
+    <div class="hs-item"><div class="hs-num">1yr</div><div class="hs-lbl">Coding</div></div>
+  </div>
+
+  <div class="scroll-ind"><span>Scroll</span><div class="scroll-arr"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="ab-wrap">
+    <div class="ab-av fu">
+      <!-- SVG 아바타 일러스트 -->
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="50" fill="url(#avatarGrad)"/>
+        <!-- 얼굴 -->
+        <ellipse cx="50" cy="42" rx="18" ry="20" fill="#FDEBD8"/>
+        <!-- 머리카락 -->
+        <ellipse cx="50" cy="26" rx="20" ry="14" fill="#2D2020"/>
+        <rect x="30" y="26" width="7" height="18" rx="3.5" fill="#2D2020"/>
+        <rect x="63" y="26" width="7" height="18" rx="3.5" fill="#2D2020"/>
+        <!-- 눈 -->
+        <ellipse cx="43" cy="40" rx="2.5" ry="3" fill="#1a2035"/>
+        <ellipse cx="57" cy="40" rx="2.5" ry="3" fill="#1a2035"/>
+        <circle cx="44" cy="39" r="1" fill="white"/>
+        <circle cx="58" cy="39" r="1" fill="white"/>
+        <!-- 볼터치 -->
+        <ellipse cx="40" cy="46" rx="4" ry="2.5" fill="#FFB8A0" opacity=".5"/>
+        <ellipse cx="60" cy="46" rx="4" ry="2.5" fill="#FFB8A0" opacity=".5"/>
+        <!-- 입 -->
+        <path d="M44 50 Q50 55 56 50" stroke="#C97070" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- 몸 -->
+        <path d="M28 80 Q32 64 50 62 Q68 64 72 80 Q68 90 50 92 Q32 90 28 80Z" fill="#b8a4d4"/>
+        <!-- 옷 디테일 -->
+        <rect x="47" y="64" width="6" height="20" rx="3" fill="white" opacity=".3"/>
+        <defs>
+          <radialGradient id="avatarGrad" cx="50%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#d4f5eb"/>
+            <stop offset="100%" stop-color="#a5e0cc"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="ab-txt fu d1">
+      <div class="sec-tag">About Me</div>
+      <h2 class="sec-h">문제를 코드로<br>해결하는 개발자</h2>
+      <p>안녕하세요, <strong>풀스택 개발자 박지수</strong>입니다.<br>사용자 경험을 최우선으로 생각하며 직관적인 인터페이스와 안정적인 백엔드 로직을 함께 구현합니다. 디자인 전공 배경을 살려 UI/UX 감각을 코드로 구현하는 데 강점이 있습니다.</p>
+      <div class="ab-stats">
+        <div><div class="stn">3</div><div class="stl">Projects</div></div>
+        <div><div class="stn">17</div><div class="stl">Skills</div></div>
+        <div><div class="stn">3</div><div class="stl">Teams</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="val-inner">
+    <div class="fu"><div class="sec-tag">Values</div><h2 class="sec-h">개발자로서의 가치관</h2></div>
+    <div class="val-grid">
+      <div class="val-card fu d1">
+        <div class="val-ico">
+          <!-- Clean Code: 코드 창 아이콘 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="6" width="36" height="32" rx="5" fill="rgba(232,160,180,0.15)" stroke="rgba(232,160,180,0.4)" stroke-width="1.5"/>
+            <rect x="4" y="6" width="36" height="10" rx="5" fill="rgba(232,160,180,0.25)"/>
+            <circle cx="11" cy="11" r="2" fill="#e8a0b4"/>
+            <circle cx="18" cy="11" r="2" fill="rgba(232,160,180,0.5)"/>
+            <circle cx="25" cy="11" r="2" fill="rgba(232,160,180,0.3)"/>
+            <path d="M13 24 L9 28 L13 32" stroke="#e8a0b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M22 24 L18 28 L22 32" stroke="rgba(232,160,180,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M27 24 L35 24" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M27 28 L33 28" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M27 32 L31 32" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="val-name">Clean Code</div>
+        <div class="val-desc">읽기 쉽고 유지보수가 용이한 코드를 작성합니다.</div>
+      </div>
+      <div class="val-card fu d2">
+        <div class="val-ico">
+          <!-- Continuous Learning: 책+화살표 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="22" height="28" rx="3" fill="rgba(184,164,212,0.2)" stroke="rgba(184,164,212,0.45)" stroke-width="1.5"/>
+            <rect x="10" y="8" width="3" height="28" rx="1.5" fill="rgba(184,164,212,0.35)"/>
+            <path d="M14 16 L24 16" stroke="rgba(184,164,212,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 20 L24 20" stroke="rgba(184,164,212,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 24 L20 24" stroke="rgba(184,164,212,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- 화살표 순환 -->
+            <path d="M30 14 Q38 14 38 22 Q38 30 30 30" stroke="#b8a4d4" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M27 27 L30 30 L27 33" stroke="#b8a4d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="38" cy="22" r="3" fill="rgba(184,164,212,0.3)" stroke="#b8a4d4" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="val-name">Continuous Learning</div>
+        <div class="val-desc">새로운 기술과 패턴을 꾸준히 학습하고 적용합니다.</div>
+      </div>
+      <div class="val-card fu d3">
+        <div class="val-ico">
+          <!-- User-Centric: 사람+하트 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="14" r="7" fill="rgba(232,160,180,0.2)" stroke="rgba(232,160,180,0.45)" stroke-width="1.5"/>
+            <path d="M6 36 C6 28 30 28 30 36" stroke="rgba(232,160,180,0.45)" stroke-width="1.5" stroke-linecap="round" fill="rgba(232,160,180,0.12)"/>
+            <path d="M32 10 C32 8 34 7 35.5 9 C37 7 39 8 39 10 C39 12 35.5 15 35.5 15 C35.5 15 32 12 32 10Z" fill="#e8a0b4"/>
+            <circle cx="18" cy="14" r="3.5" fill="rgba(232,160,180,0.4)"/>
+          </svg>
+        </div>
+        <div class="val-name">User-Centric</div>
+        <div class="val-desc">사용자의 관점에서 직관적인 경험을 설계합니다.</div>
+      </div>
+      <div class="val-card fu d1">
+        <div class="val-ico">
+          <!-- Collaboration: 두 손 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="6" fill="rgba(255,220,100,0.25)" stroke="rgba(255,200,60,0.5)" stroke-width="1.5"/>
+            <circle cx="30" cy="14" r="6" fill="rgba(184,164,212,0.2)" stroke="rgba(184,164,212,0.45)" stroke-width="1.5"/>
+            <path d="M4 34 C4 27 24 27 24 34" fill="rgba(255,200,60,0.15)" stroke="rgba(255,200,60,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M20 34 C20 27 40 27 40 34" fill="rgba(184,164,212,0.12)" stroke="rgba(184,164,212,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- 연결 선 -->
+            <path d="M20 14 L24 14" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+            <circle cx="22" cy="14" r="2.5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="val-name">Collaboration</div>
+        <div class="val-desc">팀원과의 소통을 최우선으로 함께 성장합니다.</div>
+      </div>
+      <div class="val-card fu d2">
+        <div class="val-ico">
+          <!-- Architecture: 건물/구조 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="18" width="16" height="20" rx="2" fill="rgba(100,130,200,0.2)" stroke="rgba(100,130,200,0.45)" stroke-width="1.5"/>
+            <path d="M10 20 L22 8 L34 20" stroke="rgba(100,130,200,0.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(100,130,200,0.12)"/>
+            <rect x="18" y="28" width="8" height="10" rx="2" fill="rgba(100,130,200,0.3)"/>
+            <rect x="16" y="21" width="5" height="5" rx="1" fill="rgba(100,130,200,0.4)"/>
+            <rect x="23" y="21" width="5" height="5" rx="1" fill="rgba(100,130,200,0.4)"/>
+            <circle cx="22" cy="8" r="2.5" fill="rgba(100,130,200,0.6)" stroke="rgba(100,130,200,0.8)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="val-name">Architecture</div>
+        <div class="val-desc">확장 가능하고 견고한 MVC 구조를 설계합니다.</div>
+      </div>
+      <div class="val-card fu d3">
+        <div class="val-ico">
+          <!-- Simplicity: 다이아몬드 -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 6 L38 18 L22 38 L6 18 Z" fill="rgba(200,180,255,0.2)" stroke="rgba(180,150,255,0.5)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M22 6 L38 18 L22 38 L6 18 Z" fill="none"/>
+            <!-- 내부 라인들 -->
+            <path d="M6 18 L22 22 L38 18" stroke="rgba(180,150,255,0.35)" stroke-width="1" fill="none"/>
+            <path d="M22 6 L22 38" stroke="rgba(180,150,255,0.25)" stroke-width="1"/>
+            <path d="M13 12 L31 12" stroke="rgba(200,180,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="22" cy="18" r="3.5" fill="rgba(180,150,255,0.45)" stroke="rgba(200,180,255,0.7)" stroke-width="1"/>
+            <!-- 빛 반사 -->
+            <path d="M15 13 L22 18" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="val-name">Simplicity</div>
+        <div class="val-desc">복잡한 문제를 단순하게 풀어내는 것이 실력입니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sk-inner">
+    <div class="fu"><div class="sec-tag">Skills</div><h2 class="sec-h">기술 스택</h2></div>
+    <div class="sk-track-wrap fu d1"><div class="sk-track" id="skTrack"></div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="pj-inner">
+    <div class="fu"><div class="sec-tag">Projects</div><h2 class="sec-h">프로젝트</h2></div>
+    <div class="pj-lb fu">Main Projects</div>
+    <div class="p-grid3" id="mP"></div>
+  </div>
+</section>
+
+<!-- 모달 -->
+<div id="pmodal" onclick="closeModalOut(event)">
+  <div class="pm-box">
+    <div class="pm-hdr">
+      <div class="pm-hdr-l">
+        <span class="pm-badge" id="pm-badge">Main Project</span>
+        <span class="pm-title" id="pm-title">Reeflo</span>
+      </div>
+      <button class="pm-close" onclick="closePM()">✕</button>
+    </div>
+    <div class="pm-tabs">
+      <div class="pm-tab on" onclick="pmTab(this,'ov')">Overview</div>
+      <div class="pm-tab" onclick="pmTab(this,'vid')">시연 영상</div>
+      <div class="pm-tab" id="pm-tab-conclusion" style="display:none" onclick="pmTab(this,'conclusion')">결론 &amp; 회고</div>
+      <div class="pm-tab" onclick="pmTab(this,'code')">코드</div>
+    </div>
+    <div class="pm-panels">
+      <div class="pm-panel on" id="pm-ov">
+        <div id="pm-ncc-wrap" style="display:none;margin-bottom:16px"></div><div class="pm-ov-grid">
+          <div>
+            <p class="pm-ov-desc" id="pm-ov-desc"></p>
+            <p class="pm-ov-h">주요 기능</p>
+            <div class="pm-ov-list" id="pm-ov-list"></div>
+            <p class="pm-ov-h">기술 스택</p>
+            <div class="pm-ov-tags" id="pm-ov-tags"></div>
+          </div>
+          <div class="pm-sidebar">
+            <div class="pm-sc"><div class="pm-sc-l">Role</div><div class="pm-sc-v" id="pm-role"></div></div>
+            <div class="pm-sc"><div class="pm-sc-l">Type</div><div class="pm-sc-v" id="pm-type"></div></div>
+            <div class="pm-sc"><div class="pm-sc-l">Duration</div><div class="pm-sc-v" id="pm-dur"></div></div>
+            <div class="pm-sc"><div class="pm-sc-l">Status</div><div class="pm-sc-v" id="pm-status"></div></div>
+            <a class="pm-s-link" id="pm-gh" href="#" target="_blank">
+              <div class="pm-s-ico">GH</div>
+              <div><div class="pm-s-type">GitHub</div><div class="pm-s-val">코드 보기</div></div>
+              <span class="pm-s-arr">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pm-panel" id="pm-vid">
+        <div class="pm-vid-wrap">
+          <div class="pm-vid-mock" id="pm-mock">
+            <div class="vm-browser">
+              <div class="vm-bar">
+                <div class="vm-dot r"></div><div class="vm-dot y"></div><div class="vm-dot g"></div>
+                <div class="vm-url" id="vm-url">reeflo.app</div>
+              </div>
+              <div class="vm-body">
+                <div class="vm-row w55"></div><div class="vm-row w35"></div>
+                <div class="vm-cards"><div class="vm-card"></div><div class="vm-card"></div><div class="vm-card"></div></div>
+              </div>
+            </div>
+            <div class="vm-overlay">
+              <div class="vm-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <span class="vm-play-lbl" id="pm-vid-hint">YouTube 링크 연결 후 재생</span>
+            </div>
+          </div>
+          <iframe id="pm-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none"></iframe>
+        </div>
+        <div class="pm-vid-pills" id="pm-vid-pills"></div>
+      </div>
+      <div class="pm-panel" id="pm-conclusion">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px">
+          <div style="background:rgba(46,196,160,.06);border:1px solid rgba(46,196,160,.15);border-radius:12px;padding:18px">
+            <div style="font-family:var(--fm);font-size:.47rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-d);margin-bottom:10px">✦ 핵심 성과</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="pm-c-achievements"></ul>
+          </div>
+          <div style="background:rgba(255,107,74,.05);border:1px solid rgba(255,107,74,.12);border-radius:12px;padding:18px">
+            <div style="font-family:var(--fm);font-size:.47rem;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-d);margin-bottom:10px">◈ 배운 점 &amp; 회고</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="pm-c-learnings"></ul>
+          </div>
+        </div>
+        <div style="background:rgba(0,0,0,.025);border-radius:12px;padding:18px;border:1px solid rgba(0,0,0,.05)">
+          <div style="font-family:var(--fm);font-size:.47rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:10px">▸ 다음 단계</div>
+          <p id="pm-c-next" style="font-size:.88rem;line-height:1.8;color:rgba(0,0,0,.55)"></p>
+        </div>
+      </div>
+      <div class="pm-panel" id="pm-code">
+        <div class="pm-code-wrap">
+          <div class="pm-code-top">
+            <div class="pm-code-dots"><div class="pm-code-dot r"></div><div class="pm-code-dot y"></div><div class="pm-code-dot g"></div></div>
+            <span class="pm-code-fname" id="pm-fname">PetController.java</span>
+            <button class="pm-copy-btn" id="pm-copy" onclick="copyCode()">Copy</button>
+          </div>
+          <div class="pm-code-scroll"><pre id="pm-pre"></pre></div>
+        </div>
+        <p class="pm-code-note" id="pm-code-note"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="ex-inner">
+    <div class="fu"><div class="sec-tag">Experience</div><h2 class="sec-h">경력 &amp; 학력</h2></div>
+    <div class="tl">
+  <div class="tli fu">
+    <div class="tl-dot"></div>
+    <div class="tl-date">2023 — 2025</div>
+    <div class="tl-title">Computer Programming Diploma</div>
+    <div class="tl-org">Seneca Polytechnic (Canada)</div>
+    <div class="tl-desc">2년 과정 수료 및 성적 우수(President's Honour List). Java, C++, 알고리즘 등 탄탄한 Computer Science 기초를 다졌으며, 글로벌 협업 역량을 습득했습니다.</div>
+  </div>
+
+  <div class="tli fu d1">
+    <div class="tl-dot"></div>
+    <div class="tl-date">2025 — 2026</div>
+    <div class="tl-title">Full-stack Developer</div>
+    <div class="tl-org">Pet Care Platform 'ReeFlo'</div>
+    <div class="tl-desc">반려동물 생애주기 관리 플랫폼 개발. Spring Boot와 MyBatis를 활용한 백엔드 아키텍처 설계 및 데이터베이스 최적화에 집중하여 사용자 중심의 서비스를 구현했습니다.</div>
+  </div>
+
+  <div class="tli fu d2">
+    <div class="tl-dot"></div>
+    <div class="tl-date">2026 — Present</div>
+    <div class="tl-title">Project Leader & AI Developer</div>
+    <div class="tl-org">Morph Project</div>
+    <div class="tl-desc">아이돌 의상 리폼 역경매 플랫폼 'Morph' 개발 주도. LLM 및 YOLO 기반 객체 탐지 기술을 결합하여 패션 산업에 특화된 AI 솔루션을 설계하고 있습니다.</div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="ct-inner">
+    <div class="fu"><div class="sec-tag" style="justify-content:center">Contact</div>
+    <h2 class="sec-h" style="text-align:center">함께 일해요</h2>
+    <p class="ct-desc">새로운 기회나 협업에 대해 이야기 나눌 수 있다면 언제든 연락주세요.</p></div>
+    <div class="ct-links fu d1">
+      <a href="mailto:pjsoo2948@gmail.com" class="ct-link">✉ pjsoo2948@gmail.com</a>
+      <a href="https://github.com/jpark281" target="_blank" class="ct-link">⌥ github.com/jpark281</a>
+    </div>
+  </div>
+</section>
+
+<button class="stb" id="stb">↑</button>
+<footer><p>© 2026 박지수 — Built with code &amp; design sensibility</p></footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ─── CURSOR — glowing magic ────────────────────── */
+var curGlow  = document.getElementById('cur-star');
+var curTrail = document.getElementById('cur-trail');
+var mx=0, my=0, tx=0, ty=0;
+
+document.addEventListener('mousemove', function(e){
+  mx = e.clientX; my = e.clientY;
+  curGlow.style.left = mx + 'px';
+  curGlow.style.top  = my + 'px';
+  spawnSparkle(mx, my);
+});
+
+(function tickTrail(){
+  tx += (mx - tx) * 0.08;
+  ty += (my - ty) * 0.08;
+  curTrail.style.left = tx + 'px';
+  curTrail.style.top  = ty + 'px';
+  requestAnimationFrame(tickTrail);
+})();
+
+document.addEventListener('mousedown', function(){document.body.classList.add('clicking')});
+document.addEventListener('mouseup',   function(){document.body.classList.remove('clicking')});
+
+document.querySelectorAll('a, button, .pc, .orb-item, .hdot, .sk-pill, .pm-tab, .pm-close, .pm-copy-btn').forEach(function(el){
+  el.addEventListener('mouseenter', function(){document.body.classList.add('on-link')});
+  el.addEventListener('mouseleave', function(){document.body.classList.remove('on-link')});
+});
+
+/* ✦ sparkle particles */
+var sparkleColors = ['rgba(220,200,255,.9)','rgba(255,200,220,.85)','rgba(180,230,255,.85)','rgba(255,240,200,.9)','rgba(200,240,220,.8)'];
+var lastSparkle = 0;
+function spawnSparkle(x, y){
+  var now = Date.now();
+  if(now - lastSparkle < 40) return;
+  lastSparkle = now;
+  var s = document.createElement('div');
+  var sz = 3 + Math.random() * 5;
+  var ox = (Math.random() - .5) * 18;
+  var oy = (Math.random() - .5) * 18;
+  s.style.cssText = [
+    'position:fixed',
+    'left:'+(x+ox)+'px',
+    'top:'+(y+oy)+'px',
+    'width:'+sz+'px',
+    'height:'+sz+'px',
+    'border-radius:50%',
+    'pointer-events:none',
+    'z-index:9998',
+    'transform:translate(-50%,-50%)',
+    'background:'+sparkleColors[Math.floor(Math.random()*sparkleColors.length)],
+    'box-shadow:0 0 '+sz*2+'px '+sz+'px '+sparkleColors[Math.floor(Math.random()*sparkleColors.length)],
+    'mix-blend-mode:screen',
+    'transition:opacity .5s,transform .5s',
+    'opacity:1'
+  ].join(';');
+  document.body.appendChild(s);
+  requestAnimationFrame(function(){
+    s.style.opacity = '0';
+    s.style.transform = 'translate(-50%,-50%) scale(2.5)';
+  });
+  setTimeout(function(){ s.remove(); }, 520);
+}
+
+/* ─── SVG 썸네일 일러스트 ─────────────────────────── */
+var thumbSVGs = {
+  t1: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#e8f7f1"/><rect x="40" y="18" width="240" height="124" rx="14" fill="white" opacity=".92"/><rect x="40" y="18" width="240" height="32" rx="14" fill="#f2faf6"/><rect x="40" y="38" width="240" height="12" fill="#f2faf6"/><circle cx="57" cy="34" r="4.5" fill="#ff5f57"/><circle cx="72" cy="34" r="4.5" fill="#febc2e"/><circle cx="87" cy="34" r="4.5" fill="#28c840"/><rect x="108" y="28" width="64" height="12" rx="6" fill="#c5e8d8"/><circle cx="66" cy="76" r="14" fill="#e0f5ec"/><rect x="88" y="69" width="80" height="8" rx="4" fill="#e0e0e0"/><rect x="88" y="81" width="52" height="7" rx="3.5" fill="#efefef"/><line x1="52" y1="96" x2="268" y2="96" stroke="#f0f0f0" stroke-width="1"/><circle cx="66" cy="116" r="14" fill="#e0f5ec"/><rect x="88" y="109" width="95" height="8" rx="4" fill="#e0e0e0"/><rect x="88" y="121" width="62" height="7" rx="3.5" fill="#efefef"/><circle cx="248" cy="112" r="5" fill="#b8a4d4" opacity=".18"/><circle cx="258" cy="105" r="3.5" fill="#b8a4d4" opacity=".14"/><circle cx="262" cy="116" r="3" fill="#b8a4d4" opacity=".14"/></svg>',
+
+  t2: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#fff4f1"/><rect x="30" y="18" width="165" height="124" rx="14" fill="white" opacity=".92"/><rect x="42" y="30" width="141" height="68" rx="8" fill="#ffe8e0"/><path d="M112 44 L100 56 L107 60 L106 88 L118 88 L117 60 L124 56 Z" stroke="#e8a0b4" stroke-width="1.8" stroke-linejoin="round" fill="none" opacity=".65"/><path d="M112 44 Q116 52 120 44" stroke="#e8a0b4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".45"/><rect x="42" y="106" width="95" height="9" rx="4.5" fill="#2a2a2a" opacity=".8"/><rect x="42" y="120" width="62" height="8" rx="4" fill="#e0e0e0"/><rect x="42" y="133" width="55" height="6" rx="3" fill="#e8a0b4" opacity=".22"/><rect x="205" y="18" width="85" height="38" rx="9" fill="white" opacity=".92"/><rect x="215" y="26" width="35" height="7" rx="3.5" fill="#e0e0e0"/><rect x="215" y="37" width="55" height="11" rx="5.5" fill="#e8a0b4" opacity=".16"/><rect x="205" y="62" width="85" height="38" rx="9" fill="white" opacity=".92"/><rect x="215" y="70" width="35" height="7" rx="3.5" fill="#e0e0e0"/><rect x="215" y="81" width="55" height="11" rx="5.5" fill="#e8a0b4" opacity=".1"/><rect x="205" y="108" width="85" height="30" rx="9" fill="white" opacity=".92"/><rect x="215" y="118" width="55" height="12" rx="6" fill="#e8a0b4" opacity=".85"/></svg>',
+
+  t3: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#f4f2ff"/><rect x="30" y="14" width="260" height="132" rx="14" fill="white" opacity=".9"/><rect x="30" y="14" width="260" height="36" rx="14" fill="#f7f5ff"/><rect x="30" y="36" width="260" height="14" fill="#f7f5ff"/><circle cx="57" cy="32" r="4.5" fill="#ff5f57"/><circle cx="72" cy="32" r="4.5" fill="#febc2e"/><circle cx="87" cy="32" r="4.5" fill="#28c840"/><circle cx="174" cy="32" r="9" fill="#ece8ff"/><circle cx="170" cy="30" r="2" fill="#7c6fff" opacity=".65"/><circle cx="178" cy="30" r="2" fill="#7c6fff" opacity=".65"/><path d="M170 35 Q174 38 178 35" stroke="#7c6fff" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".65"/><rect x="178" y="60" width="96" height="26" rx="13" fill="#ece9ff"/><rect x="188" y="68" width="55" height="7" rx="3.5" fill="#7c6fff" opacity=".3"/><rect x="46" y="96" width="116" height="36" rx="13" fill="#f3f0ff"/><rect x="56" y="104" width="72" height="7" rx="3.5" fill="#a89aff" opacity=".45"/><rect x="56" y="115" width="46" height="7" rx="3.5" fill="#a89aff" opacity=".3"/><rect x="42" y="136" width="196" height="5" rx="2.5" fill="#e8e4ff" opacity=".7"/><rect x="248" y="130" width="28" height="18" rx="9" fill="#7c6fff" opacity=".8"/></svg>',
+
+  t4: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#eff5ff"/><rect x="30" y="14" width="170" height="134" rx="16" fill="white" opacity=".94"/><rect x="30" y="14" width="170" height="42" rx="16" fill="#3a7bd5"/><rect x="30" y="42" width="170" height="14" fill="#3a7bd5"/><rect x="48" y="24" width="52" height="10" rx="5" fill="white" opacity=".75"/><rect x="48" y="37" width="30" height="8" rx="4" fill="white" opacity=".38"/><rect x="42" y="64" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="66" y="64" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="90" y="64" width="20" height="18" rx="5" fill="#3a7bd5"/><rect x="114" y="64" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="138" y="64" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="42" y="88" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="66" y="88" width="20" height="18" rx="5" fill="#fff0ee"/><rect x="90" y="88" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="114" y="88" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="138" y="88" width="20" height="18" rx="5" fill="#f3f3f3"/><rect x="95" y="68" width="10" height="8" rx="2" fill="white" opacity=".75"/><circle cx="77" cy="100" r="3" fill="#e8a0b4"/><rect x="212" y="14" width="78" height="134" rx="12" fill="white" opacity=".9"/><rect x="222" y="28" width="48" height="8" rx="4" fill="#3a7bd5" opacity=".65"/><circle cx="226" cy="52" r="5" fill="none" stroke="#3a7bd5" stroke-width="1.5"/><rect x="236" y="49" width="40" height="7" rx="3.5" fill="#e0e0e0"/><circle cx="226" cy="70" r="5" fill="#3a7bd5"/><path d="M223 70 L225 72.5 L229 68" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="236" y="67" width="32" height="7" rx="3.5" fill="#e0e0e0" opacity=".45"/><circle cx="226" cy="90" r="5" fill="none" stroke="#e8a0b4" stroke-width="1.5"/><rect x="236" y="87" width="42" height="7" rx="3.5" fill="#e0e0e0"/></svg>',
+
+  t5: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#f5faf1"/><rect x="30" y="14" width="260" height="132" rx="16" fill="white" opacity=".95"/><rect x="30" y="14" width="260" height="40" rx="16" fill="#fff9e6"/><rect x="30" y="40" width="260" height="14" fill="#fff9e6"/><rect x="48" y="23" width="44" height="10" rx="5" fill="#f5d96a" opacity=".75"/><rect x="48" y="36" width="28" height="7" rx="3.5" fill="#f5d96a" opacity=".38"/><rect x="228" y="21" width="48" height="24" rx="12" fill="white" opacity=".65"/><circle cx="233" cy="33" r="5" fill="#ff9f43" opacity=".7"/><rect x="242" y="30" width="26" height="6" rx="3" fill="#e0e0e0"/><line x1="48" y1="72" x2="272" y2="72" stroke="#f0f0f0" stroke-width="1"/><line x1="48" y1="88" x2="272" y2="88" stroke="#f0f0f0" stroke-width="1"/><line x1="48" y1="104" x2="272" y2="104" stroke="#f0f0f0" stroke-width="1"/><line x1="48" y1="120" x2="272" y2="120" stroke="#f0f0f0" stroke-width="1"/><rect x="48" y="64" width="145" height="7" rx="3.5" fill="#2a2a2a" opacity=".72"/><rect x="48" y="80" width="118" height="7" rx="3.5" fill="#2a2a2a" opacity=".48"/><rect x="48" y="96" width="158" height="7" rx="3.5" fill="#2a2a2a" opacity=".36"/><rect x="48" y="112" width="72" height="7" rx="3.5" fill="#2a2a2a" opacity=".22"/><rect x="48" y="128" width="40" height="12" rx="6" fill="#ffe8cc"/><rect x="94" y="128" width="40" height="12" rx="6" fill="#e8f5e9"/><rect x="140" y="128" width="40" height="12" rx="6" fill="#ffe6e6"/></svg>',
+
+  t6: '<svg width="100%" height="100%" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><rect width="320" height="160" fill="#fdf5ee"/><rect x="30" y="14" width="260" height="34" rx="12" fill="white" opacity=".92"/><rect x="46" y="24" width="52" height="10" rx="5" fill="#2a2a2a" opacity=".72"/><rect x="130" y="22" width="36" height="14" rx="7" fill="#e8a0b4" opacity=".14"/><rect x="172" y="22" width="36" height="14" rx="7" fill="#f0f0f0"/><rect x="214" y="22" width="36" height="14" rx="7" fill="#f0f0f0"/><rect x="30" y="56" width="78" height="46" rx="10" fill="white" opacity=".9"/><rect x="36" y="62" width="66" height="22" rx="6" fill="#fdebd0"/><rect x="36" y="88" width="45" height="7" rx="3.5" fill="#e0e0e0"/><rect x="121" y="56" width="78" height="46" rx="10" fill="white" opacity=".9"/><rect x="127" y="62" width="66" height="22" rx="6" fill="#e8f5e8"/><rect x="127" y="88" width="55" height="7" rx="3.5" fill="#e0e0e0"/><rect x="212" y="56" width="78" height="46" rx="10" fill="white" opacity=".9"/><rect x="218" y="62" width="66" height="22" rx="6" fill="#ebe8ff"/><rect x="218" y="88" width="42" height="7" rx="3.5" fill="#e0e0e0"/><rect x="30" y="108" width="78" height="40" rx="10" fill="white" opacity=".9"/><rect x="36" y="114" width="66" height="20" rx="6" fill="#f0eeff"/><rect x="36" y="138" width="35" height="6" rx="3" fill="#e0e0e0"/><rect x="121" y="108" width="78" height="40" rx="10" fill="white" opacity=".9"/><rect x="127" y="114" width="66" height="20" rx="6" fill="#fce8e8"/><rect x="127" y="138" width="50" height="6" rx="3" fill="#e0e0e0"/><rect x="212" y="108" width="78" height="40" rx="10" fill="white" opacity=".9"/><rect x="218" y="114" width="66" height="20" rx="6" fill="#e8f4f0"/><rect x="218" y="138" width="40" height="6" rx="3" fill="#e0e0e0"/></svg>',
+  t7: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="10" width="16" height="10" rx="2" fill="#7ea8e0"/><rect x="18" y="13" width="8" height="7" rx="1.5" fill="#5585c8"/><rect x="18" y="13" width="8" height="4" rx="1.5" fill="#3a7bd5"/><circle cx="7" cy="22" r="2.5" fill="#2a2a2a"/><circle cx="7" cy="22" r="1" fill="#888"/><circle cx="21" cy="22" r="2.5" fill="#2a2a2a"/><circle cx="21" cy="22" r="1" fill="#888"/><rect x="2" y="20" width="24" height="2" rx="1" fill="#c0cedf"/></svg>'
+};
+
+/* ─── DATA ────────────────────────────────────────── */
+var pjList = [
+  {id:'truck',type:'main',badge:'Main Project · 2025',title:'NCC Delivery System',url:'github.com/jpark281/SFT_PROJECT_NCC',
+   thumb:'t7',svgKey:'t7',
+   desc:'C언어 기반 도심 배송 최적화. 25×25 격자 맵, 유클리드 거리로 Blue·Green·Yellow 3개 노선 자동 배차. Seneca 팀 프로젝트, 화이트박스·블랙박스·통합·인수 테스트 전 범위 커버.',
+   features:['25×25 격자 맵 위 유클리드 거리 기반 최적 노선 자동 배차','Blue / Green / Yellow 3개 노선 트럭 용량 관리 로직','validatePackageWeight / validatePackageBox 입력 검증','화이트박스·블랙박스·통합·인수 테스트 전 범위 구현'],
+   tags:['C','C++','Visual Studio','CppUnitTest','Team 3인'],
+   role:'Developer',ptype:'Team Project (3인)',dur:'1학기',status:'Completed ✓',
+   github:'https://github.com/jpark281/SFT_PROJECT_NCC',youtube:'',
+   fname:'Truck.c',
+   code:`<span class="cm">// 배송 라인 결정 — 유클리드 거리 기반 최적 노선 선택</span>
+<span class="kw">struct</span> <span class="cl">Point</span> lineToShip(
+    <span class="kw">const struct</span> <span class="cl">Point</span> dest,
+    <span class="kw">const struct</span> <span class="cl">Route</span> blueRoute,
+    <span class="kw">const struct</span> <span class="cl">Route</span> greenRoute,
+    <span class="kw">const struct</span> <span class="cl">Route</span> yellowRoute,
+    <span class="kw">struct</span> <span class="cl">PackageInf</span> validPack[],
+    <span class="kw">const struct</span> <span class="cl">Map</span> base)
+{
+    <span class="kw">double</span> tempWeight = validPack[<span class="num">3</span>].m_weight;
+    <span class="kw">double</span> shortestVal = DBL_MAX;
+    <span class="kw">struct</span> <span class="cl">Point</span> closestPt = { <span class="num">0</span> };
+
+    <span class="kw">int</span> idxBlue   = getClosestPoint(&amp;blueRoute,   dest);
+    <span class="kw">int</span> idxGreen  = getClosestPoint(&amp;greenRoute,  dest);
+    <span class="kw">int</span> idxYellow = getClosestPoint(&amp;yellowRoute, dest);
+    <span class="cm">// 각 노선의 최근접 지점까지 거리 계산 후 최솟값 선택</span>
+    <span class="kw">double</span> distBlue   = distance(&amp;blueRoute.points[idxBlue],     &amp;dest);
+    <span class="kw">double</span> distGreen  = distance(&amp;greenRoute.points[idxGreen],   &amp;dest);
+    <span class="kw">double</span> distYellow = distance(&amp;yellowRoute.points[idxYellow], &amp;dest);
+    <span class="kw">if</span> (distBlue &lt;= distGreen &amp;&amp; distBlue &lt;= distYellow
+        &amp;&amp; validPack[<span class="num">0</span>].m_weight + tempWeight &lt;= MAX_CARGO_WEIGHT) {
+        printf(<span class="st">"Ship on BLUE LINE, "</span>);
+        validPack[<span class="num">0</span>].m_weight += tempWeight;
+        closestPt = blueRoute.points[idxBlue];
+    } <span class="kw">else if</span> (distGreen &lt;= distYellow
+        &amp;&amp; validPack[<span class="num">1</span>].m_weight + tempWeight &lt;= MAX_CARGO_WEIGHT) {
+        printf(<span class="st">"Ship on GREEN LINE, "</span>);
+        validPack[<span class="num">1</span>].m_weight += tempWeight;
+        closestPt = greenRoute.points[idxGreen];
+    } <span class="kw">else</span> {
+        printf(<span class="st">"Ship on YELLOW LINE, "</span>);
+        validPack[<span class="num">2</span>].m_weight += tempWeight;
+        closestPt = yellowRoute.points[idxYellow];
+    }
+    <span class="kw">return</span> closestPt;
+}
+
+<span class="cm">// 입력 검증</span>
+<span class="kw">int</span> validatePackageWeight(<span class="kw">double</span> num) {
+    <span class="kw">return</span> (num &gt;= <span class="num">1</span> &amp;&amp; num &lt;= MAX_CARGO_WEIGHT) ? <span class="num">1</span> : <span class="num">0</span>;
+}
+<span class="kw">int</span> validatePackageBox(<span class="kw">double</span> num) {
+    <span class="kw">return</span> (num == <span class="num">1</span> || num == <span class="num">3</span> || num == <span class="num">5</span>) ? <span class="num">1</span> : <span class="num">0</span>;
+}`,
+   codeNote:'유클리드 거리로 Blue·Green·Yellow 3개 노선 중 최근접 지점을 계산하고, 트럭 용량(MAX_CARGO_WEIGHT)을 초과하지 않는 노선에 자동 배차하는 핵심 로직.',
+   pills:['C / C++','Euclidean Distance','Team 3인','2025'],nccDashboard:true,
+   conclusion:{
+     achievements:[
+       '97% 테스트 통과율 달성 (29개 테스트 케이스)',
+       '25×25 격자 맵 위 A* 탐색 알고리즘 직접 구현',
+       'Blue / Green / Yellow 3개 노선 자동 배차 로직 완성',
+       '화이트박스·블랙박스·통합·인수 테스트 전 범위 커버'
+     ],
+     learnings:[
+       'C언어에서 메모리 관리의 중요성을 직접 체감',
+       '팀원과 역할 분담 시 인터페이스 설계가 핵심임을 깨달음',
+       '테스트 주도 개발로 버그를 초기에 잡을 수 있었음',
+       '유클리드 거리 vs 맨해튼 거리 선택의 성능 차이 학습'
+     ],
+     next:'향후 웹 대시보드 UI와 연결하여 실시간 배차 현황을 시각화하고, 노선 가중치를 머신러닝으로 자동 최적화하는 방향을 탐색 중입니다.'
+   }},
+
+  {id:'reeflo',type:'main',badge:'Main Project · 2025',title:'Reeflo',url:'reeflo.app',
+   thumb:'t1',svgKey:'t1',
+   desc:'Spring Boot 기반 반려동물 종합 정보 시스템. JPA를 활용한 데이터 관리와 Thymeleaf SSR 기반 화면 구성. 반려동물 정보 조회, 커뮤니티, 마이페이지 등 다양한 기능을 갖춘 풀스택 프로젝트.',
+   features:['Spring Security 기반 로그인·회원가입 인증','JPA + MySQL 반려동물 정보 CRUD 구현','Thymeleaf 서버사이드 렌더링','팀 협업 Git-flow 브랜치 전략 적용'],
+   tags:['Spring Boot','MySQL','Thymeleaf','JPA','Java','Spring Security'],
+   role:'Full-Stack Developer',ptype:'Team Project (3인)',dur:'3개월',status:'Completed ✓',
+   github:'https://github.com/wefefwf/miniproject',youtube:'https://www.youtube.com/embed/PK2LgPyx3R8',
+   fname:'PetController.java',
+   code:`<span class="an">@RestController</span>
+<span class="an">@RequestMapping</span>(<span class="st">"/api/pets"</span>)
+<span class="an">@RequiredArgsConstructor</span>
+<span class="kw">public class</span> <span class="cl">PetController</span> {
+
+    <span class="kw">private final</span> <span class="cl">PetService</span> petService;
+
+    <span class="cm">// 반려동물 목록 조회</span>
+    <span class="an">@GetMapping</span>
+    <span class="kw">public</span> <span class="cl">ResponseEntity</span>&lt;<span class="cl">List</span>&lt;<span class="cl">PetDto</span>&gt;&gt; getAll(
+            <span class="an">@AuthenticationPrincipal</span> <span class="cl">UserDetails</span> user) {
+        <span class="kw">return</span> <span class="cl">ResponseEntity</span>.ok(
+            petService.findByOwner(user.getUsername()));
+    }
+}`,
+   codeNote:'@AuthenticationPrincipal로 현재 로그인 유저를 주입받아 본인 반려동물만 조회·수정 가능하도록 구현.',
+   pills:['Spring Boot · Backend','Team 3인','2025'],
+   conclusion:{
+     achievements:[
+       'Spring Security 기반 인증 시스템 완성 (로그인·회원가입·세션)',
+       'JPA + MySQL CRUD 전체 기능 구현 및 N+1 쿼리 최적화',
+       'Git-flow 전략으로 팀 협업 충돌 없이 3개월 완주',
+       'Thymeleaf SSR로 SEO 친화적 반응형 UI 구현'
+     ],
+     learnings:[
+       'JPA 연관관계 매핑에서 LazyLoading 이슈를 실전에서 해결',
+       'Spring Security 필터 체인 동작 방식을 깊이 이해',
+       '팀 내 코드 리뷰 문화를 도입해 코드 품질이 크게 향상됨',
+       'Thymeleaf 템플릿 설계에서 재사용성의 중요성을 체득'
+     ],
+     next:'현재 MyBatis에서 JPA로 전환한 경험을 바탕으로, QueryDSL을 도입한 복잡한 검색 필터링과 Redis 캐싱을 통한 성능 개선을 계획하고 있습니다.'
+   }},
+
+  {id:'nextage',type:'main',badge:'Main Project · 2025',title:'Nextage',url:'nextage.app',
+   thumb:'t2',svgKey:'t2',
+   desc:'수선 의뢰자와 공급업체를 연결하는 C2B 역경매 플랫폼. 의뢰자가 수선 요청을 등록하고 공급업체가 입찰하는 구조로, 가격 투명성과 견적 비교를 동시에 해결.',
+   features:['C2B 역경매 구조 설계 및 입찰 로직 구현','Spring Boot REST API 설계','MySQL 기반 데이터 모델링','Bootstrap 반응형 UI 구현'],
+   tags:['Spring Boot','Java','MySQL','Bootstrap','REST API'],
+   role:'Full-Stack Developer',ptype:'Team Project (4인)',dur:'2개월',status:'Completed ✓',
+   github:'https://github.com/wefefwf/Final-Project-Nextage',youtube:'https://www.youtube.com/embed/aKtQ5CjL0Ic',
+   fname:'BidController.java',
+   code:`<span class="an">@PostMapping</span>(<span class="st">"/api/bids"</span>)
+<span class="kw">public</span> <span class="cl">ResponseEntity</span>&lt;<span class="cl">BidDto</span>&gt; placeBid(
+        <span class="an">@RequestBody</span> <span class="an">@Valid</span> <span class="cl">BidRequest</span> req,
+        <span class="an">@AuthenticationPrincipal</span> <span class="cl">UserDetails</span> user) {
+    <span class="cl">Auction</span> auction = auctionRepo.findById(req.getAuctionId())
+        .orElseThrow(() -> <span class="kw">new</span> <span class="cl">NotFoundException</span>(<span class="st">"경매를 찾을 수 없습니다"</span>));
+    <span class="kw">if</span> (auction.isClosed()) {
+        <span class="kw">throw new</span> <span class="cl">BadRequestException</span>(<span class="st">"마감된 경매입니다"</span>);
+    }
+    <span class="cl">BidDto</span> bid = bidService.place(req, user.getUsername());
+    <span class="kw">return</span> <span class="cl">ResponseEntity</span>.status(<span class="num">201</span>).body(bid);
+}`,
+   codeNote:'경매 마감 여부를 먼저 검증하고 입찰을 처리. 커스텀 예외 클래스로 일관된 에러 응답을 반환.',
+   pills:['C2B 역경매','Spring Boot','Team 4인'],
+   conclusion:{
+     achievements:[
+       'C2B 역경매 구조를 국내 최초로 의류 수선 도메인에 적용',
+       'REST API 설계로 프론트-백 완전 분리 아키텍처 구현',
+       '입찰 마감 동시성 처리 로직 설계 및 커스텀 예외 처리',
+       '4인 팀 프로젝트 리드 역할로 일정 내 전 기능 완성'
+     ],
+     learnings:[
+       '역경매 비즈니스 로직에서 트랜잭션 일관성 관리가 핵심임을 체감',
+       'API 응답 스펙 통일의 중요성 — 초기 설계가 후반 개발 속도를 결정',
+       'Bootstrap만으로도 충분히 완성도 있는 UI를 만들 수 있음을 확인',
+       '요구사항 분석을 충분히 하지 않으면 후반에 리팩토링 비용이 큼'
+     ],
+     next:'입찰 알림을 위한 WebSocket 실시간 통신과, AI 기반 의류 상태 자동 분류 기능(YOLO)을 통합하여 Morph 프로젝트로 발전시키고 있습니다.'
+   }}
+];
+
+/* 오빗 아이콘 SVG (미니) */
+var orbIconSVGs = {
+  t1: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="14" cy="13" rx="7" ry="6" fill="#a5e0cc"/><ellipse cx="11" cy="10" rx="3" ry="4" fill="#a5e0cc" transform="rotate(-20 11 10)"/><ellipse cx="17" cy="10" rx="3" ry="4" fill="#a5e0cc" transform="rotate(20 17 10)"/><circle cx="12" cy="13" r="1.5" fill="#1a2035" opacity=".5"/><circle cx="16" cy="13" r="1.5" fill="#1a2035" opacity=".5"/><path d="M11 16 Q14 18 17 16" stroke="#e0907a" stroke-width="1" stroke-linecap="round" fill="none"/><path d="M20 16 Q24 12 22 8" stroke="#a5e0cc" stroke-width="2" stroke-linecap="round" fill="none"/></svg>',
+  t2: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 5 L7 11 L10 14 L10 24 L18 24 L18 14 L21 11 L18 5 Z" fill="#ffbfad" stroke="#e89080" stroke-width="1"/><path d="M14 18 L14 24" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity=".5"/><rect x="19" y="9" width="7" height="10" rx="2" fill="#ffddd5" stroke="#e89080" stroke-width="1"/></svg>',
+  t3: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="6" width="14" height="12" rx="3" fill="#bdb5e3" stroke="#9990cc" stroke-width="1"/><rect x="9.5" y="9" rx="1.5" width="4" height="3" fill="#d5d0ee"/><rect x="14.5" y="9" rx="1.5" width="4" height="3" fill="#d5d0ee"/><line x1="14" y1="6" x2="14" y2="3" stroke="#9990cc" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="2.5" r="1.5" fill="#bdb5e3"/><path d="M6 22 L9 14 L19 14 L22 22 Z" fill="#bdb5e3" opacity=".4"/></svg>',
+  t4: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="20" height="18" rx="3" fill="#b0d4ec" stroke="#80b8e0" stroke-width="1"/><rect x="4" y="6" width="20" height="7" rx="3" fill="#80b8e0"/><rect x="7" y="16" width="5" height="5" rx="1" fill="white" opacity=".5"/><rect x="13" y="16" width="5" height="5" rx="1" fill="rgba(100,160,220,0.7)"/><path d="M14 17 L15.5 19 L18 16.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
+  t5: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="16" height="20" rx="3" fill="#b5e0c0" stroke="#80c898" stroke-width="1"/><circle cx="5" cy="10" r="2" fill="white" opacity=".6"/><circle cx="5" cy="16" r="2" fill="white" opacity=".6"/><line x1="8" y1="10" x2="18" y2="10" stroke="rgba(80,160,100,0.4)" stroke-width="1" stroke-dasharray="2 1.5"/><line x1="8" y1="14" x2="18" y2="14" stroke="rgba(80,160,100,0.3)" stroke-width="1" stroke-dasharray="2 1.5"/><circle cx="22" cy="8" r="4" fill="rgba(255,220,100,0.7)"/></svg>',
+  t6: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="14" width="18" height="12" rx="2" fill="#e8c0a0" stroke="#d0a080" stroke-width="1"/><path d="M4 14 Q14 5 24 14" fill="#ecc5b0" stroke="#d0a080" stroke-width="1"/><rect x="11" y="18" width="6" height="5" rx="1.5" fill="#d0a080"/><path d="M16 6 L17 9 L20 9 L18 11 L19 14 L16 12 L13 14 L14 11 L12 9 L15 9 Z" fill="rgba(200,180,255,0.7)" stroke="rgba(180,150,255,0.5)" stroke-width=".5"/></svg>',
+  t7: '<svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="10" width="16" height="10" rx="2" fill="#7ea8e0"/><rect x="18" y="13" width="8" height="7" rx="1.5" fill="#5585c8"/><rect x="18" y="13" width="8" height="4" rx="1.5" fill="#3a7bd5"/><circle cx="7" cy="22" r="2.5" fill="#2a2a2a"/><circle cx="7" cy="22" r="1" fill="#888"/><circle cx="21" cy="22" r="2.5" fill="#2a2a2a"/><circle cx="21" cy="22" r="1" fill="#888"/><rect x="2" y="20" width="24" height="2" rx="1" fill="#c0cedf"/></svg>'
+};
+
+var orbL = [
+  {type:'deco',bg:'rgba(184,164,212,.18)',ico:'⬡'},
+  {type:'proj',idx:0,label:'NCC',bg:'linear-gradient(135deg,#d0e0f5,#a8c8e8)',svgKey:'t7'},
+  {type:'deco',bg:'rgba(232,160,180,.12)',ico:'◈'},
+  {type:'proj',idx:1,label:'Reeflo',bg:'linear-gradient(135deg,#c8efe3,#a5e0cc)',svgKey:'t1'},
+  {type:'deco',bg:'rgba(107,114,128,.1)',ico:'✦'},
+  {type:'proj',idx:2,label:'Nextage',bg:'linear-gradient(135deg,#ffddd5,#ffbfad)',svgKey:'t2'},
+  {type:'deco',bg:'rgba(184,164,212,.1)',ico:'◇'},
+  {type:'deco',bg:'rgba(232,160,180,.08)',ico:'⬡'},
+  {type:'deco',bg:'rgba(155,135,195,.14)',ico:'◈'}
+];
+
+// 오른쪽 오빗: 기술 스택 아이콘들
+var orbR_items = [
+  {type:'deco',bg:'rgba(46,196,160,.18)',ico:'Java',svgKey:'Java'},
+  {type:'deco',bg:'rgba(107,174,64,.18)',ico:'Spring',svgKey:'Spring'},
+  {type:'deco',bg:'rgba(240,219,79,.18)',ico:'JS',svgKey:'JavaScript'},
+  {type:'deco',bg:'rgba(240,101,41,.15)',ico:'HTML',svgKey:'HTML5'},
+  {type:'deco',bg:'rgba(21,114,182,.15)',ico:'CSS',svgKey:'CSS3'},
+  {type:'deco',bg:'rgba(0,117,143,.18)',ico:'SQL',svgKey:'MySQL'},
+  {type:'deco',bg:'rgba(240,82,82,.15)',ico:'Git',svgKey:'Git'},
+  {type:'deco',bg:'rgba(13,183,237,.15)',ico:'Docker',svgKey:'Docker'},
+  {type:'deco',bg:'rgba(255,153,0,.15)',ico:'AWS',svgKey:'AWS'}
+];
+
+var techSVGs = {
+  Java:'<svg viewBox="0 0 48 48"><path d="M20.2 29.4s-1.8 1 1.3 1.4c3.7.5 5.6.4 9.7-.4 0 0 1.1.7 2.6 1.2-9.1 3.9-20.7-.2-13.6-2.2z" fill="#EA2D2E"/><path d="M19.1 25.6s-2 1.5.2 1.8c2.9.4 8.1.4 12.4-.2 0 0 .8.8 2 1.3-10.9 3.2-23.1.3-14.6-2.9z" fill="#EA2D2E"/><path d="M26.2 17.8c2.2 2.6-.6 4.9-.6 4.9s5.7-2.9 3.1-6.6c-2.4-3.5-4.3-5.2 5.8-11.2 0 0-15.8 3.9-8.3 12.9z" fill="#EA2D2E"/><path d="M36.1 32.2s1.3 1.1-1.5 1.9c-5.3 1.6-22.1 2.1-26.8.1-1.7-.7 1.5-1.7 2.4-1.9 1-.2 1.6-.2 1.6-.2-1.8-1.3-11.9 2.5-5.1 3.6 18.5 3 33.7-1.3 29.4-3.5z" fill="#EA2D2E"/><path d="M24 6s4.6 4.6-4.4 11.7c-7.2 5.7-1.6 8.9 0 12.6-4.2-3.8-7.3-7.1-5.2-10.2 3-4.5 11.3-6.7 9.6-14.1z" fill="#5382A1"/></svg>',
+  Spring:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="#6DB33F"/><circle cx="24" cy="24" r="13" fill="white" opacity=".15"/><path d="M16 24c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8z" fill="white" opacity=".9"/><circle cx="24" cy="24" r="3" fill="#6DB33F"/><path d="M33 11c1-2 3-5 4.5-6.5-1 2.5-1 5.5-3 7.5" stroke="#6DB33F" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>',
+  JavaScript:'<svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="3" fill="#f0db4f"/><path d="M28.8 32.4c.5.9 1.2 1.5 2.4 1.5 1 0 1.6-.5 1.6-1.2 0-.8-.7-1.1-1.8-1.6l-.6-.3c-1.8-.8-3-1.7-3-3.8 0-1.9 1.4-3.3 3.6-3.3 1.6 0 2.7.6 3.5 2l-1.9 1.2c-.4-.7-.9-1-1.6-1-.7 0-1.2.4-1.2 1 0 .7.5 1 1.5 1.5l.6.3c2.2 1 3.3 1.9 3.3 4 0 2.3-1.8 3.5-4.2 3.5-2.4 0-3.9-1.2-4.6-2.7l2-1.1zm-8.2.3c.4.6.7 1.2 1.5 1.2.8 0 1.2-.3 1.2-1.5v-8.4h2.4v8.4c0 2.5-1.5 3.7-3.6 3.7-2 0-3.1-1-3.7-2.2l2.2-1.2z" fill="#323330"/></svg>',
+  'HTML5':'<svg viewBox="0 0 48 48"><path d="M8 6l3.6 40.4L24 50l12.4-3.6L40 6H8z" fill="#e34f26"/><path d="M33.4 18H24v5.2h8.8l-.8 9.2-8 2.2v5.4l11.2-3.2 1.6-18.8zM24 23.2H15.2l.4 5.2H24v-5.2zM24 18H14.6l.4 5.2H24V18zm0 14.6l-7.6-2-.4-5.4H10.6l.8 9.8L24 39v-6.4z" fill="white"/></svg>',
+  'CSS3':'<svg viewBox="0 0 48 48"><path d="M8 6l3.6 40.4L24 50l12.4-3.6L40 6H8z" fill="#1572b6"/><path d="M34.2 18.4l-.6 6.4-9.6 2.6v5.4l9.2-2.4 1.2-13.4h-16l.4 5.4h14.4z" fill="white"/><path d="M24 37.2l-7-2-.4-4.6H11l.8 9.2L24 43v-5.8z" fill="#ebebeb"/></svg>',
+  Python:'<svg viewBox="0 0 48 48"><path d="M24.047 4c-1.316 0-2.571.111-3.704.302-3.279.573-3.876 1.773-3.876 3.983v2.921h7.752v.974H13.04c-2.253 0-4.227 1.353-4.844 3.928-.706 2.941-.737 4.777 0 7.851.547 2.288 1.853 3.927 4.107 3.927h2.659v-3.542c0-2.559 2.214-4.815 4.844-4.815h7.745c2.156 0 3.877-1.774 3.877-3.938V8.285c0-2.101-1.771-3.68-3.877-3.983A31.977 31.977 0 0024.047 4zm-4.19 2.383a1.455 1.455 0 110 2.91 1.455 1.455 0 010-2.91z" fill="url(#py1)"/><path d="M30.537 13.179v3.442c0 2.668-2.263 4.914-4.844 4.914h-7.745c-2.124 0-3.877 1.815-3.877 3.938v7.386c0 2.1 1.824 3.334 3.877 3.938 2.454.721 4.808.851 7.745 0 1.952-.565 3.877-1.702 3.877-3.938V29.52h-7.745v-.974h11.622c2.254 0 3.093-1.572 3.877-3.927.809-2.424.775-4.755 0-7.851-.557-2.236-1.621-3.928-3.877-3.928h-2.91zm-4.353 18.573a1.455 1.455 0 110 2.91 1.455 1.455 0 010-2.91z" fill="url(#py2)"/><defs><linearGradient id="py1" x1="9" y1="4" x2="30" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="py2" x1="18" y1="20" x2="39" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs></svg>',
+  Vue:'<svg viewBox="0 0 48 48"><path d="M24 8L8 8l16 28 16-28z" fill="#41b883"/><path d="M24 8L16 8l8 14 8-14z" fill="#34495e"/></svg>',
+  React:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="4" fill="#61dafb"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61dafb" stroke-width="2" fill="none"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61dafb" stroke-width="2" fill="none" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" stroke="#61dafb" stroke-width="2" fill="none" transform="rotate(120 24 24)"/></svg>',
+  MySQL:'<svg viewBox="0 0 48 48"><path d="M10 30c5-6 9-8 14-8s12 5 16-4" stroke="#00758f" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M10 24c5-6 9-8 14-8s12 5 16-4" stroke="#f29111" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 18v14" stroke="#f29111" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="18" r="2" fill="#f29111"/></svg>',
+  Oracle:'<svg viewBox="0 0 48 48"><rect x="6" y="16" width="36" height="16" rx="8" fill="#f80000"/><rect x="10" y="20" width="28" height="8" rx="4" fill="white" opacity=".25"/></svg>',
+  Git:'<svg viewBox="0 0 48 48"><path d="M43.6 22.2L25.8 4.4a3.5 3.5 0 00-5 0l-3.5 3.5 4.5 4.5a4 4 0 015 5L32 23a4 4 0 11-2 2l-5-5v12a4 4 0 11-2 0V20l-4-4a4 4 0 01-4.5-4L7.4 5.4a3.5 3.5 0 000 5l17.8 17.8a3.5 3.5 0 005 0l13.4-13.4a3.5 3.5 0 000-5z" fill="#f05032"/></svg>',
+  Docker:'<svg viewBox="0 0 48 48"><rect x="6" y="22" width="36" height="12" rx="3" fill="#0db7ed"/><rect x="10" y="14" width="6" height="6" rx="1" fill="#0db7ed"/><rect x="18" y="14" width="6" height="6" rx="1" fill="#0db7ed"/><rect x="26" y="14" width="6" height="6" rx="1" fill="#0db7ed"/><rect x="18" y="22" width="6" height="6" rx="1" fill="white" opacity=".25"/><rect x="10" y="22" width="6" height="6" rx="1" fill="white" opacity=".25"/></svg>',
+  AWS:'<svg viewBox="0 0 48 48"><path d="M16 30l-6 3 6 2 6-2-6-3z" fill="#FF9900"/><path d="M32 30l6 3-6 2-6-2 6-3z" fill="#FF9900"/><path d="M24 26l-10 4 10 4 10-4-10-4z" fill="#FF9900"/><path d="M24 14l-10 4v8l10 4 10-4v-8l-10-4z" fill="#FF9900" opacity=".7"/></svg>',
+  MariaDB:'<svg viewBox="0 0 48 48"><rect x="8" y="20" width="32" height="8" rx="3" fill="#003545"/><circle cx="14" cy="24" r="3" fill="#c0392b"/><path d="M20 24h16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>',
+  JPA:'<svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="28" rx="4" fill="#59666C"/><rect x="12" y="16" width="24" height="4" rx="2" fill="white" opacity=".3"/><rect x="12" y="22" width="18" height="3" rx="1.5" fill="white" opacity=".2"/><rect x="12" y="27" width="21" height="3" rx="1.5" fill="white" opacity=".2"/></svg>',
+  Figma:'<svg viewBox="0 0 48 48"><rect x="16" y="8" width="16" height="10" rx="5" fill="#F24E1E"/><rect x="16" y="19" width="16" height="10" rx="5" fill="#FF7262"/><rect x="16" y="30" width="16" height="10" rx="5" fill="#1ABCFE"/><circle cx="32" cy="24" r="6" fill="#0ACF83"/></svg>',
+  Bootstrap:'<svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="7" fill="#7952B3"/><path d="M18 16h9c3 0 5 1.5 5 4.5 0 2-1 3.5-3 4 2.5.5 4 2 4 4.5 0 3.5-2.5 5-6 5H18V16zm3 7.5h5.5c1.5 0 2.5-.8 2.5-2s-1-2-2.5-2H21v4zm0 7.5h6c1.7 0 2.8-.9 2.8-2.3S28.7 26.5 27 26.5H21V31z" fill="white"/></svg>'
+};
+
+var skillsData=[
+  {n:'Java',svg:'Java'},{n:'Spring Boot',svg:'Spring'},{n:'JavaScript',svg:'JavaScript'},
+  {n:'HTML5',svg:'HTML5'},{n:'CSS3',svg:'CSS3'},{n:'Python',svg:'Python'},
+  {n:'Vue.js',svg:'Vue'},{n:'React',svg:'React'},{n:'MySQL',svg:'MySQL'},
+  {n:'Oracle',svg:'Oracle'},{n:'MariaDB',svg:'MariaDB'},{n:'JPA',svg:'JPA'},
+  {n:'Git',svg:'Git'},{n:'Docker',svg:'Docker'},{n:'AWS',svg:'AWS'},
+  {n:'Figma',svg:'Figma'},{n:'Bootstrap',svg:'Bootstrap'}
+];
+
+/* ─── ORBIT ────────────────────────────────────────── */
+var lAngle=0,rAngle=0,lPaused=false,rPaused=false,SPEED=0.0014;
+function orbR(){var h=window.innerHeight;return Math.min(h*.30,240)}
+
+function createOrbItems(wrapId,arr,isRight){
+  var wrap=document.getElementById(wrapId);
+  wrap.querySelectorAll('.orb-item').forEach(function(e){e.remove()});
+  var n=arr.length;
+  arr.forEach(function(d,i){
+    var el=document.createElement('div');
+    el.className='orb-item deco';
+    el.dataset.idx=i;
+    el.dataset.base=((2*Math.PI*i)/n).toString();
+    if(d.type==='proj'){
+      el.classList.remove('deco');
+      el.innerHTML='<div class="oi-ico">'+(orbIconSVGs[d.svgKey]||'')+'</div><span class="oi-lbl">'+d.label+'</span>';
+      el.style.background='rgba(255,255,255,.65)';
+    } else if(isRight && d.svgKey && techSVGs[d.svgKey]){
+      el.innerHTML='<div class="oi-ico" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 48 48" width="28" height="28">'+techSVGs[d.svgKey].replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')+'</svg></div>';
+      el.style.background=d.bg||'rgba(255,255,255,.45)';
+      el.title=d.ico;
+    } else {
+      el.innerHTML='<span style="font-size:1.1rem;color:rgba(0,0,0,.2)">'+d.ico+'</span>';
+      el.style.background=d.bg||'rgba(255,255,255,.3)';
+    }
+    wrap.appendChild(el);
+  });
+}
+
+function posOrb(wrapId,angle){
+  var wrap=document.getElementById(wrapId),R=orbR();
+  wrap.querySelectorAll('.orb-item').forEach(function(el){
+    var base=parseFloat(el.dataset.base),a=base+angle;
+    var x=R*Math.cos(a),y=R*Math.sin(a);
+    el.style.transform='translate('+x+'px,'+y+'px)';
+  });
+}
+
+function animOrb(){
+  if(!lPaused)lAngle+=SPEED;
+  if(!rPaused)rAngle-=SPEED;
+  posOrb('owL',lAngle);posOrb('owR',rAngle);
+  requestAnimationFrame(animOrb);
+}
+
+function updateRingSize(){
+  var s=Math.min(window.innerHeight*.72,640)+'px';
+  document.querySelectorAll('.orbit-svg-ring').forEach(function(r){r.style.width=s;r.style.height=s});
+}
+
+var activePI=0;
+var sL=document.getElementById('sideL'),sR=document.getElementById('sideR');
+
+function setSideSize(){
+  var hcard=document.querySelector('.hcard');
+  if(!hcard)return;
+  var h=hcard.offsetHeight;
+  var rect=hcard.getBoundingClientRect(),hr=document.getElementById('hero').getBoundingClientRect();
+  var cy=rect.top-hr.top+rect.height/2;
+  [sL,sR].forEach(function(s){s.style.width=h+'px';s.style.height=h+'px';s.style.top=(cy-h/2)+'px'});
+}
+
+function setActive(idx){
+  var p=pjList[idx];if(!p)return;
+  // 필수 요소가 없으면 중단 (모달 열린 상태 등)
+  if(!document.getElementById('cType'))return;
+  activePI=idx;
+  document.querySelectorAll('#owL .orb-item').forEach(function(el){
+    var d=orbL[parseInt(el.dataset.idx)];
+    el.classList.toggle('active',d&&d.type==='proj'&&d.idx===idx);
+  });
+  document.getElementById('cType').textContent=p.type==='main'?'Main Project':'Toy Project';
+  var clickable=pjList.filter(function(x){return true});
+  document.getElementById('cNum').textContent=String(idx+1).padStart(2,'0')+' / '+String(clickable.length).padStart(2,'0');
+  document.getElementById('cUrl').textContent=p.url;
+  var thumbEl=document.getElementById('cThumb');
+  thumbEl.className='hcard-thumb-inner';
+  thumbEl.innerHTML='<div style="position:absolute;inset:0">'+thumbSVGs[p.svgKey]+'</div>';
+  document.getElementById('cTitle').textContent=p.title;
+  document.getElementById('cDesc').textContent=p.desc.substring(0,60)+(p.desc.length>60?'…':'');
+  document.getElementById('cTechs').innerHTML=p.tags.slice(0,3).map(function(t){return '<span class="hcard-tech">'+t+'</span>'}).join('');
+  document.getElementById('cBtnGH').href=p.github;
+  document.getElementById('cBtnModal').onclick=function(){openPM(idx)};
+  setSideSize();
+  sL.innerHTML='<div style="width:100%;height:100%;overflow:hidden">'+thumbSVGs[p.svgKey]+'</div>';
+  // 오른쪽 사이드: 프로젝트 정보 카드
+  var gradMap={t1:'135deg,rgba(165,224,204,.35),rgba(200,239,227,.2)',t2:'135deg,rgba(255,191,173,.35),rgba(255,221,213,.2)',t3:'135deg,rgba(189,181,227,.35),rgba(213,208,238,.2)',t4:'135deg,rgba(176,212,236,.35),rgba(208,232,245,.2)',t5:'135deg,rgba(181,224,192,.35),rgba(213,238,221,.2)',t6:'135deg,rgba(236,197,176,.35),rgba(245,221,208,.2)',t7:'135deg,rgba(160,200,232,.35),rgba(208,224,245,.2)'};
+  sR.style.background='linear-gradient('+(gradMap[p.svgKey]||'135deg,rgba(184,164,212,.18),rgba(232,160,180,.12)')+')';
+  sR.style.padding='20px';
+  sR.style.flexDirection='column';
+  sR.style.alignItems='flex-start';
+  sR.style.justifyContent='center';
+  sR.style.gap='10px';
+  sR.innerHTML=[
+    '<div style="font-family:var(--fm);font-size:.42rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:2px">'+( p.type==='main'?'Main Project':'Side Project')+'</div>',
+    '<div style="font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:-.3px;line-height:1.2">'+p.title+'</div>',
+    '<div style="width:28px;height:2px;background:var(--coral);border-radius:2px;margin:2px 0"></div>',
+    '<div style="display:flex;flex-direction:column;gap:6px;width:100%">',
+      '<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:var(--fm);font-size:.5rem;color:var(--gray);letter-spacing:.06em">TEAM</span><span style="font-family:var(--fd);font-size:.75rem;font-weight:600;color:var(--navy)">'+p.ptype.replace('Team Project','').replace(/[()]/g,'').trim()+'</span></div>',
+      '<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:var(--fm);font-size:.5rem;color:var(--gray);letter-spacing:.06em">DURATION</span><span style="font-family:var(--fd);font-size:.75rem;font-weight:600;color:var(--navy)">'+p.dur+'</span></div>',
+      '<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:var(--fm);font-size:.5rem;color:var(--gray);letter-spacing:.06em">ROLE</span><span style="font-family:var(--fd);font-size:.68rem;font-weight:600;color:var(--navy)">'+p.role+'</span></div>',
+    '</div>',
+    '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">'+p.tags.slice(0,3).map(function(t){return '<span style="padding:3px 8px;border-radius:20px;font-family:var(--fm);font-size:.48rem;background:rgba(46,196,160,.12);color:var(--sage-d);border:1px solid rgba(46,196,160,.2)">'+t+'</span>'}).join('')+'</div>'
+  ].join('');
+  sL.classList.add('show');sR.classList.add('show');
+  buildDots();
+}
+
+function buildDots(){
+  var c=document.getElementById('hDots');c.innerHTML='';
+  pjList.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='hdot'+(i===activePI?' on':'');
+    d.onclick=function(){setActive(i)};
+    c.appendChild(d);
+  });
+  var s=document.createElement('span');s.className='hdot-ct';
+  s.textContent=(activePI+1)+' / '+pjList.length;
+  c.appendChild(s);
+}
+
+function attachOrbEvents(){
+  document.querySelectorAll('#owL .orb-item:not(.deco)').forEach(function(el){
+    el.addEventListener('mouseenter',function(){
+      var d=orbL[parseInt(el.dataset.idx)];
+      if(d&&d.type==='proj')setActive(d.idx);
+    });
+    el.addEventListener('click',function(){
+      var d=orbL[parseInt(el.dataset.idx)];
+      if(d&&d.type==='proj')setActive(d.idx);
+    });
+  });
+}
+
+function buildHero(){
+  updateRingSize();
+  createOrbItems('owL',orbL,false);
+  createOrbItems('owR',orbR_items,true);
+  setActive(activePI);
+  attachOrbEvents();
+}
+buildHero();
+window.addEventListener('resize',function(){buildHero();setSideSize()});
+animOrb();
+
+document.getElementById('owL').addEventListener('mouseenter',function(){lPaused=true});
+document.getElementById('owL').addEventListener('mouseleave',function(){lPaused=false});
+document.getElementById('owR').addEventListener('mouseenter',function(){rPaused=true});
+document.getElementById('owR').addEventListener('mouseleave',function(){rPaused=false});
+
+var autoIdx=0,autoTimer;
+function startAuto(){
+  clearInterval(autoTimer);
+  autoTimer=setInterval(function(){
+    autoIdx=(autoIdx+1)%pjList.length;
+    setActive(autoIdx);
+  },3800);
+}
+startAuto();
+document.getElementById('hero').addEventListener('mouseenter',function(){clearInterval(autoTimer)});
+document.getElementById('hero').addEventListener('mouseleave',function(){
+  // 모달이 열려있으면 재시작 안 함
+  if(!document.getElementById('pmodal').classList.contains('open')) startAuto();
+});
+
+/* SKILLS TRACK */
+(function(){
+  var track=document.getElementById('skTrack');
+  function mk(s){
+    var el=document.createElement('div');el.className='sk-pill';
+    el.innerHTML='<div class="sk-pill-ico">'+(techSVGs[s.svg]||'<span>'+s.svg.substring(0,2)+'</span>')+'</div><span class="sk-pill-name">'+s.n+'</span>';
+    return el;
+  }
+  skillsData.forEach(function(s){track.appendChild(mk(s))});
+  skillsData.forEach(function(s){track.appendChild(mk(s))});
+})();
+
+/* PROJECT CARDS */
+function mkCard(p,i){
+  return '<div class="pc fu" data-idx="'+i+'">'
+    +'<div class="pc-thumb"><div class="pc-thumb-bg" style="inset:0;position:absolute">'+(thumbSVGs[p.svgKey]||'')+'</div>'
+    +'<div class="pc-thumb-ov"><span>자세히 보기</span></div></div>'
+    +'<div class="pc-body"><div class="pc-tags">'+p.tags.slice(0,3).map(function(t,j){return '<span class="pc-tag'+(j===1?' alt':'')+'">'+t+'</span>'}).join('')+'</div>'
+    +'<div class="pc-title">'+p.title+'</div>'
+    +'<div class="pc-desc">'+p.desc.substring(0,52).replace(/\n/g,'')+'…</div></div></div>';
+}
+var mainPs=pjList.filter(function(p){return p.type==='main'});
+document.getElementById('mP').innerHTML=mainPs.map(function(p){
+  var realIdx=pjList.indexOf(p);
+  return mkCard(p,realIdx);
+}).join('');
+document.getElementById('mP').addEventListener('click',function(e){
+  var c=e.target.closest('.pc');
+  if(c)openPM(parseInt(c.dataset.idx));
+});
+
+/* MODAL */
+var rawCode='';
+function $id(id){return document.getElementById(id);}
+function openPM(idx){
+  var p=pjList[idx];
+  if(!p)return;
+
+  // 슬라이더 즉시 정지 & 인덱스 동기화
+  clearInterval(autoTimer);
+  autoIdx=idx;
+
+  // --- Overview 기본 정보 ---
+  $id('pm-badge').textContent=p.badge;
+  $id('pm-title').textContent=p.title;
+  $id('pm-ov-desc').textContent=p.desc;
+  $id('pm-ov-list').innerHTML=p.features.map(function(f){return '<div class="pm-ov-li">'+f+'</div>'}).join('');
+  $id('pm-ov-tags').innerHTML=p.tags.map(function(t){return '<span class="pm-ov-tag">'+t+'</span>'}).join('');
+  $id('pm-role').textContent=p.role;
+  $id('pm-type').textContent=p.ptype;
+  $id('pm-dur').textContent=p.dur;
+  $id('pm-status').textContent=p.status;
+  $id('pm-gh').href=p.github;
+
+  // --- 시연 영상 탭 ---
+  var iframe=$id('pm-iframe');
+  var mock=$id('pm-mock');
+  var vidTab=document.querySelectorAll('.pm-tab')[1];
+  iframe.src='';
+  iframe.style.display='none';
+  mock.style.backgroundImage='';
+  if(p.youtube){
+    var ytId=p.youtube.replace('https://www.youtube.com/embed/','').split('?')[0];
+    var ytWatch='https://www.youtube.com/watch?v='+ytId;
+    var ytThumb='https://img.youtube.com/vi/'+ytId+'/hqdefault.jpg';
+    mock.style.display='flex';
+    mock.style.backgroundImage='url('+ytThumb+')';
+    mock.style.backgroundSize='cover';
+    mock.style.backgroundPosition='center';
+    mock.innerHTML=
+      '<div style="position:absolute;inset:0;background:rgba(0,0,0,.42);backdrop-filter:blur(2px)"></div>'+
+      '<div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px">'+
+        '<a href="'+ytWatch+'" target="_blank" rel="noopener" style="width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.4);text-decoration:none;transition:transform .2s">'+
+          '<svg viewBox="0 0 24 24" width="24" height="24" style="fill:#1a2035;margin-left:4px"><path d="M8 5v14l11-7z"/></svg>'+
+        '</a>'+
+        '<a href="'+ytWatch+'" target="_blank" rel="noopener" style="font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;padding:6px 18px;border:1px solid rgba(255,255,255,.38);border-radius:20px;background:rgba(255,255,255,.1)">YouTube에서 보기 →</a>'+
+      '</div>';
+    vidTab.style.display='';
+  } else {
+    mock.style.display='flex';
+    mock.style.backgroundImage='none';
+    mock.innerHTML=
+      '<div class="vm-browser">'+
+        '<div class="vm-bar"><div class="vm-dot r"></div><div class="vm-dot y"></div><div class="vm-dot g"></div>'+
+          '<div class="vm-url">'+p.url+'</div></div>'+
+        '<div class="vm-body"><div class="vm-row w55"></div><div class="vm-row w35"></div>'+
+          '<div class="vm-cards"><div class="vm-card"></div><div class="vm-card"></div><div class="vm-card"></div></div></div>'+
+      '</div>'+
+      '<div class="vm-overlay">'+
+        '<div class="vm-play" style="cursor:default"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>'+
+        '<span class="vm-play-lbl">시연 영상 준비 중</span>'+
+      '</div>';
+    vidTab.style.display='none';
+  }
+  // pills (vm-url을 innerHTML로 교체했으므로 pm-vid-pills는 별도 요소)
+  $id('pm-vid-pills').innerHTML=p.pills.map(function(pl){return '<span class="pm-vid-pill">'+pl+'</span>'}).join('');
+
+  // --- 코드 탭 ---
+  $id('pm-fname').textContent=p.fname;
+  $id('pm-pre').innerHTML=p.code;
+  $id('pm-code-note').textContent=p.codeNote;
+  rawCode=p.code.replace(/<[^>]+>/g,'');
+  $id('pm-copy').textContent='Copy';
+  $id('pm-copy').classList.remove('ok');
+
+  // --- 결론 탭 ---
+  var conclusionTab=$id('pm-tab-conclusion');
+  if(p.conclusion){
+    conclusionTab.style.display='';
+    var mkLi=function(txt){
+      return '<li style="display:flex;align-items:flex-start;gap:8px;font-size:.84rem;line-height:1.65;color:rgba(0,0,0,.6)">'+
+        '<span style="flex-shrink:0;margin-top:6px;width:5px;height:5px;border-radius:50%;background:var(--coral);display:inline-block"></span>'+txt+'</li>';
+    };
+    $id('pm-c-achievements').innerHTML=p.conclusion.achievements.map(mkLi).join('');
+    $id('pm-c-learnings').innerHTML=p.conclusion.learnings.map(mkLi).join('');
+    $id('pm-c-next').textContent=p.conclusion.next;
+  } else {
+    conclusionTab.style.display='none';
+  }
+
+  // --- 탭 초기화: Overview로 리셋 ---
+  document.querySelectorAll('.pm-tab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.pm-panel').forEach(function(pn){pn.classList.remove('on')});
+  document.querySelectorAll('.pm-tab')[0].classList.add('on');
+  $id('pm-ov').classList.add('on');
+
+  // --- NCC 대시보드 ---
+  var nccWrap=$id('pm-ncc-wrap');
+  var ovDesc=$id('pm-ov-desc');
+  if(p.nccDashboard){
+    nccWrap.innerHTML='';
+    nccWrap.appendChild(document.importNode($id('ncc-tpl').content,true));
+    nccWrap.style.display='block';
+    ovDesc.style.display='none';
+    setTimeout(function(){
+      var wrap=nccWrap.querySelector('.wrap');
+      if(!wrap)return;
+      wrap.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+      wrap.querySelectorAll('.panel').forEach(function(pn){pn.classList.remove('active')});
+      var ft=wrap.querySelector('.tab'), fp=wrap.querySelector('.panel');
+      if(ft)ft.classList.add('active');
+      if(fp)fp.classList.add('active');
+      var grid=wrap.querySelector('#whitebox-grid');
+      if(grid)window._buildWhiteboxGrid(grid);
+    },30);
+  } else {
+    nccWrap.style.display='none';
+    nccWrap.innerHTML='';
+    ovDesc.style.display='';
+  }
+
+  // --- 모달 열기 ---
+  $id('pmodal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePM(){
+  document.getElementById('pmodal').classList.remove('open');
+  document.body.style.overflow='';
+  document.getElementById('pm-iframe').src='';
+  // 슬라이더 재시작 (현재 카드부터)
+  startAuto();
+}
+function closeModalOut(e){if(e.target===document.getElementById('pmodal'))closePM();}
+function pmTab(el,key){
+  document.querySelectorAll('.pm-tab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.pm-panel').forEach(function(p){p.classList.remove('on')});
+  el.classList.add('on');document.getElementById('pm-'+key).classList.add('on');
+  if(key!=='vid'){var f=document.getElementById('pm-iframe');f.src=f.src;}
+}
+function copyCode(){
+  navigator.clipboard.writeText(rawCode).then(function(){
+    var b=document.getElementById('pm-copy');b.textContent='Copied!';b.classList.add('ok');
+    setTimeout(function(){b.textContent='Copy';b.classList.remove('ok')},2000);
+  });
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePM()});
+
+/* SCROLL / NAV */
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY;
+  document.getElementById('nav').classList.toggle('sc',sy>50);
+  document.getElementById('stb').classList.toggle('show',sy>400);
+  var secs=document.querySelectorAll('section[id]');
+  secs.forEach(function(sec){
+    var a=document.querySelector('.nav-links a[href="#'+sec.id+'"]');
+    if(a){var on=sy+100>=sec.offsetTop&&sy+100<sec.offsetTop+sec.offsetHeight;a.classList.toggle('on',on)}
+  });
+});
+document.getElementById('stb').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  if(a.id==='pm-gh')return;
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+
+/* REVEAL */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){en.target.classList.add('vis');obs.unobserve(en.target);}
+  });
+},{threshold:.12});
+document.querySelectorAll('.fu').forEach(function(el){obs.observe(el)});
+
+/* CURSOR */
+var star=document.getElementById('cur-star'),trail=document.getElementById('cur-trail');
+var mx=window.innerWidth/2,my=window.innerHeight/2,tx=mx,ty=my;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;star.style.left=mx+'px';star.style.top=my+'px';});
+(function loop(){tx+=(mx-tx)*.18;ty+=(my-ty)*.18;trail.style.left=tx+'px';trail.style.top=ty+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,[role="button"],.orb-item,.hdot,.pc,.pm-close,.pm-tab,.hbtn,.ct-link').forEach(function(el){
+  el.addEventListener('mouseenter',function(){document.body.classList.add('on-link')});
+  el.addEventListener('mouseleave',function(){document.body.classList.remove('on-link')});
+});
+</script>
+
+<template id="ncc-tpl"><div class="wrap">
+  <!-- Scene -->
+  <div class="scene">
+    <div class="scene-ground"></div>
+    <div class="scene-road">
+      <div class="scene-road-line">
+        <svg viewBox="0 0 800 2" width="100%" height="2" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="1" x2="800" y2="1" stroke="#F7C948" stroke-width="1.5" stroke-dasharray="24 24"/>
+        </svg>
+      </div>
+    </div>
+    <div class="truck t-blue" style="left:0"><div style="position:relative"><div style="display:flex;align-items:flex-end"><div class="tk-body"></div><div class="tk-cab"><div class="tk-win"></div></div></div><div class="tk-axle"><div class="tk-wheel"></div><div class="tk-wheel"></div></div></div></div>
+    <div class="truck t-green" style="left:0"><div style="position:relative"><div style="display:flex;align-items:flex-end"><div class="tk-body"></div><div class="tk-cab"><div class="tk-win"></div></div></div><div class="tk-axle"><div class="tk-wheel"></div><div class="tk-wheel"></div></div></div></div>
+    <div class="truck t-pink" style="left:0"><div style="position:relative"><div style="display:flex;align-items:flex-end"><div class="tk-body"></div><div class="tk-cab"><div class="tk-win"></div></div></div><div class="tk-axle"><div class="tk-wheel"></div><div class="tk-wheel"></div></div></div></div>
+  </div>
+
+  <div class="header">
+    <span class="header-title">NCC 테스트 리포트</span>
+    <span class="header-sub">SFT221 · 2025</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-val">29</div><div class="kpi-lbl">총 테스트</div></div>
+    <div class="kpi"><div class="kpi-val green">28</div><div class="kpi-lbl">통과</div></div>
+    <div class="kpi"><div class="kpi-val amber">1</div><div class="kpi-lbl">스킵</div></div>
+    <div class="kpi"><div class="kpi-val blue">97%</div><div class="kpi-lbl">통과율</div></div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="sw('summary',this)">전체 요약</div>
+    <div class="tab" onclick="sw('white',this)"><span class="tab-pip" style="background:#185FA5"></span>화이트박스 <span style="font-size:10px;color:var(--color-text-secondary)">(6)</span></div>
+    <div class="tab" onclick="sw('black',this)"><span class="tab-pip" style="background:#3B6D11"></span>블랙박스 <span style="font-size:10px;color:var(--color-text-secondary)">(6)</span></div>
+    <div class="tab" onclick="sw('integration',this)"><span class="tab-pip" style="background:#BA7517"></span>통합 <span style="font-size:10px;color:var(--color-text-secondary)">(4)</span></div>
+    <div class="tab" onclick="sw('acceptance',this)"><span class="tab-pip" style="background:#993556"></span>인수 <span style="font-size:10px;color:var(--color-text-secondary)">(6)</span></div>
+  </div>
+
+  <!-- ═══════════════ SUMMARY ═══════════════ -->
+  <div id="p-summary" class="panel active">
+    <div class="sum-wrap">
+      <div class="cov-list">
+        <div><div class="cov-header"><span class="cov-label"><span class="tab-pip" style="background:#185FA5;width:8px;height:8px"></span>WhiteBoxTest</span><span class="cov-count">6 테스트 · 24 케이스 · <span style="color:#27500A;font-weight:500">전체 통과</span></span></div><div class="cov-track"><div class="cov-fill" style="width:100%;background:#185FA5;animation-delay:0s"></div></div></div>
+        <div><div class="cov-header"><span class="cov-label"><span class="tab-pip" style="background:#3B6D11;width:8px;height:8px"></span>BlackBoxTest</span><span class="cov-count">6 테스트 · 29 케이스 · <span style="color:#993556;font-weight:500">1 스킵</span></span></div><div class="cov-track"><div class="cov-fill" style="width:96.5%;background:#3B6D11;animation-delay:.1s"></div></div></div>
+        <div><div class="cov-header"><span class="cov-label"><span class="tab-pip" style="background:#BA7517;width:8px;height:8px"></span>IntegrationTest</span><span class="cov-count">4 테스트 · 16 케이스 · <span style="color:#27500A;font-weight:500">전체 통과</span></span></div><div class="cov-track"><div class="cov-fill" style="width:100%;background:#BA7517;animation-delay:.2s"></div></div></div>
+        <div><div class="cov-header"><span class="cov-label"><span class="tab-pip" style="background:#993556;width:8px;height:8px"></span>AcceptanceTest</span><span class="cov-count">6 테스트 · 6 케이스 · <span style="color:#27500A;font-weight:500">전체 통과</span></span></div><div class="cov-track"><div class="cov-fill" style="width:100%;background:#993556;animation-delay:.3s"></div></div></div>
+      </div>
+      <div class="sum-footer">Blue · Green · Yellow 3개 노선 &nbsp;·&nbsp; 25×25 격자 맵 &nbsp;·&nbsp; TestIsDestinationValid 주석 처리됨</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ WHITEBOX ═══════════════ -->
+  <div id="p-white" class="panel">
+    <div class="panel-inner">
+      <div class="viz-box">
+        <div class="viz-title">25×25 격자 맵 — 노선 및 테스트 함수 검증 범위</div>
+        <div class="grid-wrap">
+          <div class="mini-grid" id="whitebox-grid"></div>
+          <div class="grid-legend">
+            <div class="leg-item"><div class="leg-swatch" style="background:#85B7EB"></div>Blue 노선</div>
+            <div class="leg-item"><div class="leg-swatch" style="background:#97C459"></div>Green 노선</div>
+            <div class="leg-item"><div class="leg-swatch" style="background:#F7C948"></div>Yellow 노선</div>
+            <div class="leg-item"><div class="leg-swatch" style="background:#2C2C2A"></div>건물</div>
+            <div class="leg-item"><div class="leg-swatch" style="background:#E24B4A;border-radius:50%"></div>테스트 좌표</div>
+            <div style="margin-top:6px;font-size:10px;color:var(--color-text-secondary);line-height:1.5">
+              GetClosestPoint<br>Distance<br>EqPt 검증 범위
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-box">
+        <div class="test-list">
+          <div class="test-item" id="w1"><div class="test-header" onclick="toggle('w1')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">ValidatePackageBox</div><div class="test-desc">홀수(1,3,5) → 1 / 짝수(2) → 0</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">validatePackageBox(1)</div><div class="case-expected">→ 1</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">validatePackageBox(3)</div><div class="case-expected">→ 1</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">validatePackageBox(5)</div><div class="case-expected">→ 1</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">validatePackageBox(2)</div><div class="case-expected">→ 0 (짝수 거부)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="w2"><div class="test-header" onclick="toggle('w2')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">ReturnInt</div><div class="test-desc">A→0, B→1, Y→24, Z→−1</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">returnInt('A')</div><div class="case-expected">→ 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">returnInt('B')</div><div class="case-expected">→ 1</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">returnInt('Y')</div><div class="case-expected">→ 24</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">returnInt('Z')</div><div class="case-expected">→ -1 (범위 초과)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="w3"><div class="test-header" onclick="toggle('w3')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">PopulateMap</div><div class="test-desc">25×25 맵 초기화 — numRows/numCols/건물 배치</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">map.numRows == MAP_ROWS</div><div class="case-expected">→ AreEqual 통과</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">map.squares[0][0]</div><div class="case-expected">→ 0 (빈 셀)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">map.squares[1][1]</div><div class="case-expected">→ 1 (건물)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">map.squares[7][1]</div><div class="case-expected">→ 1 (건물)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="w4"><div class="test-header" onclick="toggle('w4')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">Distance</div><div class="test-desc">유클리드 거리 — 정수·음수·동일점</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">(0,0)→(3,4)</div><div class="case-expected">→ 5.0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">(1,1)→(4,5)</div><div class="case-expected">→ 5.0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">(0,0)→(0,0)</div><div class="case-expected">→ 0.0 (동일점)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">(-1,-1)→(2,2)</div><div class="case-expected">→ 4.2426… (음수)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="w5"><div class="test-header" onclick="toggle('w5')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">EqPt</div><div class="test-desc">좌표 동일성 비교</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">eqPt({0,0}, {0,0})</div><div class="case-expected">→ 1 (동일)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">eqPt({0,0}, {1,1})</div><div class="case-expected">→ 0 (다름)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">eqPt({0,0}, {0,1})</div><div class="case-expected">→ 0 (col 다름)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">eqPt({1,1}, {1,1})</div><div class="case-expected">→ 1 (동일)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="w6"><div class="test-header" onclick="toggle('w6')"><div class="test-pip" style="background:#185FA5"></div><div class="test-body"><div class="test-name">GetClosestPoint</div><div class="test-desc">route 내 dest와 가장 가까운 인덱스 반환</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">route{(0,0),(3,4),(6,8)}, dest=(4,5)</div><div class="case-expected">→ idx 1</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">dest=(7,9)</div><div class="case-expected">→ idx 2</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">dest=(0,0)</div><div class="case-expected">→ idx 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">dest=(3,3)</div><div class="case-expected">→ idx 1</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ BLACKBOX ═══════════════ -->
+  <div id="p-black" class="panel">
+    <div class="panel-inner">
+      <div class="viz-box">
+        <div class="viz-title">입출력 흐름 — 함수별 유효/무효 경계 검증</div>
+        <div class="flow-rows">
+          <div class="flow-row">
+            <div class="flow-node input">weight: 1~2500</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node func">ValidateWeight</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-ok">true ✓</div>
+            <div style="font-size:10px;color:var(--color-text-secondary);margin-left:4px">/ 3000· 음수</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-err">false ✗</div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-node input">box: 홀수 1,3,5</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node func">ValidateBox</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-ok">true ✓</div>
+            <div style="font-size:10px;color:var(--color-text-secondary);margin-left:4px">/ 짝수·0·문자</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-err">false ✗</div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-node input">"12A"</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node func">CheckDestInput</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-ok">row=12, col='A'</div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-node input" style="background:#FAEEDA;color:#633806;border-color:#FAC775">dest: 범위 초과</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node func" style="background:#FAEEDA;color:#633806;border-color:#FAC775">IsDestValid ⚠</div>
+            <div class="flow-arr">→</div>
+            <div class="flow-node out-err">스킵됨</div>
+          </div>
+        </div>
+      </div>
+      <div class="list-box">
+        <div class="test-list">
+          <div class="test-item" id="b1"><div class="test-header" onclick="toggle('b1')"><div class="test-pip" style="background:#3B6D11"></div><div class="test-body"><div class="test-name">TestValidatePackageWeight</div><div class="test-desc">1~2500kg 유효 / 3000kg·음수 거부</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">weight = 1</div><div class="case-expected">→ true (최솟값)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">weight = 2500</div><div class="case-expected">→ true (경계)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">weight = 3000</div><div class="case-expected">→ false (초과)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">weight = −1</div><div class="case-expected">→ false (음수)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="b2"><div class="test-header" onclick="toggle('b2')"><div class="test-pip" style="background:#3B6D11"></div><div class="test-body"><div class="test-name">TestValidatePackageBox</div><div class="test-desc">홀수 허용 / 짝수·0·문자 거부</div></div><div class="test-meta">6 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">box = 1</div><div class="case-expected">→ true</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">box = 3</div><div class="case-expected">→ true</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">box = 5</div><div class="case-expected">→ true</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">box = 2</div><div class="case-expected">→ false (짝수)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C5</span><div class="case-body"><div class="case-input">box = 0</div><div class="case-expected">→ false (0)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C6</span><div class="case-body"><div class="case-input">box = 'a'</div><div class="case-expected">→ false (문자)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="b3"><div class="test-header" onclick="toggle('b3')"><div class="test-pip" style="background:#3B6D11"></div><div class="test-body"><div class="test-name">TestReturnInt</div><div class="test-desc">대문자 A~Y / 소문자·숫자·특수 → −1</div></div><div class="test-meta">5 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">ch = 'A'</div><div class="case-expected">→ 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">ch = 'Y'</div><div class="case-expected">→ 24</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">ch = 'a'</div><div class="case-expected">→ -1 (소문자)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">ch = '1'</div><div class="case-expected">→ -1 (숫자)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C5</span><div class="case-body"><div class="case-input">ch = '@'</div><div class="case-expected">→ -1 (특수)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item skip-border" id="b4"><div class="test-header" onclick="toggle('b4')" style="background:rgba(186,117,23,.06)"><div class="test-pip" style="background:#BA7517"></div><div class="test-body"><div class="test-name">TestIsDestinationValid</div><div class="test-desc">음수·범위 초과 목적지 거부 — 주석 처리됨</div></div><div class="test-meta">5 케이스</div><span class="badge badge-skip">스킵</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">dest = (−1, 5)</div><div class="case-expected">→ false (음수 행)</div></div><span class="case-badge case-skip">스킵</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">dest = (5, −1)</div><div class="case-expected">→ false (음수 열)</div></div><span class="case-badge case-skip">스킵</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">dest = (25, 0)</div><div class="case-expected">→ false (초과)</div></div><span class="case-badge case-skip">스킵</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">dest = (0, 25)</div><div class="case-expected">→ false (초과)</div></div><span class="case-badge case-skip">스킵</span></div><div class="case-row"><span class="case-num">C5</span><div class="case-body"><div class="case-input">dest = (12, 12)</div><div class="case-expected">→ true (유효)</div></div><span class="case-badge case-skip">스킵</span></div></div></div>
+          <div class="test-item" id="b5"><div class="test-header" onclick="toggle('b5')"><div class="test-pip" style="background:#3B6D11"></div><div class="test-body"><div class="test-name">TestCheckDestInput</div><div class="test-desc">"12A" → (12, 'A') 파싱</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">input = "1A"</div><div class="case-expected">→ row=1, col='A'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">input = "12A"</div><div class="case-expected">→ row=12, col='A'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">input = "24Y"</div><div class="case-expected">→ row=24, col='Y'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">input = "0A"</div><div class="case-expected">→ row=0, col='A'</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="b6"><div class="test-header" onclick="toggle('b6')"><div class="test-pip" style="background:#3B6D11"></div><div class="test-body"><div class="test-name">TestReturnSymb</div><div class="test-desc">맵 값 → 기호 변환 (X / 공백 / B / G / Y)</div></div><div class="test-meta">5 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">val = 1</div><div class="case-expected">→ 'X'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">val = 0</div><div class="case-expected">→ ' ' (공백)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">val = 2 (Blue)</div><div class="case-expected">→ 'B'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">val = 3 (Green)</div><div class="case-expected">→ 'G'</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C5</span><div class="case-body"><div class="case-input">val = 4 (Yellow)</div><div class="case-expected">→ 'Y'</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ INTEGRATION ═══════════════ -->
+  <div id="p-integration" class="panel">
+    <div class="panel-inner">
+      <div class="viz-box">
+        <div class="viz-title">Truck.c ↔ mapping.c 모듈 연동 구조</div>
+        <div style="overflow-x:auto;padding-bottom:4px">
+          <div class="mod-diag" style="min-width:480px">
+            <div class="mod-box truck">
+              <div class="mod-title">Truck.c</div>
+              <div class="mod-sub">패키지 검증<br>무게·박스 체크</div>
+              <div class="flow-badge" style="background:#E6F1FB;color:#0C447C">ValidateBox<br>ValidateWeight</div>
+            </div>
+            <div class="mod-arrow">
+              <div class="mod-arrow-line"></div>
+              <div class="mod-arrow-label">검증 통과 시<br>→</div>
+            </div>
+            <div class="mod-box mapping">
+              <div class="mod-title">mapping.c</div>
+              <div class="mod-sub">노선 탐색<br>최근접 좌표</div>
+              <div class="flow-badge" style="background:#EAF3DE;color:#27500A">lineToShip<br>GetClosest</div>
+            </div>
+            <div class="mod-arrow">
+              <div class="mod-arrow-line"></div>
+              <div class="mod-arrow-label">배정 결과<br>→</div>
+            </div>
+            <div class="mod-box result">
+              <div class="mod-title">결과 출력</div>
+              <div class="mod-sub">노선 배정<br>경로 출력</div>
+              <div class="flow-badge" style="background:#FAEEDA;color:#633806">BLUE / GREEN<br>YELLOW LINE</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:8px;font-size:10px;color:var(--color-text-secondary)">무효 무게(2600~2900) → 0 반환 &nbsp;·&nbsp; 범위 외 목적지(25~28행) → 0 반환</div>
+      </div>
+      <div class="list-box">
+        <div class="section-note">패키지 검증 → 최적 노선 배정 전체 흐름 End-to-End</div>
+        <div class="test-list">
+          <div class="test-item" id="i1"><div class="test-header" onclick="toggle('i1')"><div class="test-pip" style="background:#BA7517"></div><div class="test-body"><div class="test-name">TestValidatePackageBoxIntegration</div><div class="test-desc">박스 검증 통과 시 lineToShip 연계</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">box=1, dest=(5,5)</div><div class="case-expected">→ lineToShip 호출 성공</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">box=3, dest=(10,10)</div><div class="case-expected">→ lineToShip 호출 성공</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">box=2, dest=(5,5)</div><div class="case-expected">→ lineToShip 미호출 (거부)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">box=5, dest=(0,0)</div><div class="case-expected">→ lineToShip 호출 성공</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="i2"><div class="test-header" onclick="toggle('i2')"><div class="test-pip" style="background:#BA7517"></div><div class="test-body"><div class="test-name">TestLineToShip</div><div class="test-desc">목적지별 최근접 노선 좌표 반환</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">dest=(2,2)</div><div class="case-expected">→ Blue 노선 최근접</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">dest=(15,3)</div><div class="case-expected">→ Green 노선 최근접</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">dest=(3,15)</div><div class="case-expected">→ Yellow 노선 최근접</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">dest=(12,12)</div><div class="case-expected">→ 3노선 중 최단 선택</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="i3"><div class="test-header" onclick="toggle('i3')"><div class="test-pip" style="background:#BA7517"></div><div class="test-body"><div class="test-name">TestInvalidWeight</div><div class="test-desc">2600~2900kg 초과 → 0 반환</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">weight = 2600</div><div class="case-expected">→ 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">weight = 2700</div><div class="case-expected">→ 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">weight = 2900</div><div class="case-expected">→ 0</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">weight = 2500</div><div class="case-expected">→ 정상 처리 (경계)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="i4"><div class="test-header" onclick="toggle('i4')"><div class="test-pip" style="background:#BA7517"></div><div class="test-body"><div class="test-name">TestInvalidDestination</div><div class="test-desc">맵 범위 외 목적지(25~28행) → 0 반환</div></div><div class="test-meta">4 케이스</div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">row = 25</div><div class="case-expected">→ 0 (초과)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">row = 26</div><div class="case-expected">→ 0 (초과)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">row = 27</div><div class="case-expected">→ 0 (초과)</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C4</span><div class="case-body"><div class="case-input">row = 28</div><div class="case-expected">→ 0 (초과)</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ ACCEPTANCE ═══════════════ -->
+  <div id="p-acceptance" class="panel">
+    <div class="panel-inner">
+      <div class="viz-box">
+        <div class="viz-title">배송 시나리오 — 노선 선택 시각화 (클릭해서 TC 확인)</div>
+        <div style="overflow-x:auto">
+          <svg id="accept-svg" width="100%" viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="display:block;min-width:400px">
+            <!-- grid bg -->
+            <rect width="560" height="160" fill="none"/>
+            <!-- city blocks simplified -->
+            <rect x="10" y="10" width="540" height="140" rx="4" fill="none" stroke="var(--color-border-tertiary)" stroke-width=".5"/>
+            <!-- buildings -->
+            <rect x="30" y="20" width="30" height="16" rx="2" fill="#444" opacity=".7"/>
+            <rect x="100" y="20" width="40" height="16" rx="2" fill="#444" opacity=".7"/>
+            <rect x="200" y="15" width="50" height="20" rx="2" fill="#444" opacity=".7"/>
+            <rect x="320" y="20" width="35" height="16" rx="2" fill="#444" opacity=".7"/>
+            <rect x="430" y="20" width="40" height="16" rx="2" fill="#444" opacity=".7"/>
+            <rect x="30" y="70" width="25" height="40" rx="2" fill="#444" opacity=".7"/>
+            <rect x="160" y="60" width="30" height="50" rx="2" fill="#444" opacity=".7"/>
+            <rect x="280" y="55" width="45" height="35" rx="2" fill="#444" opacity=".7"/>
+            <rect x="400" y="65" width="35" height="30" rx="2" fill="#444" opacity=".7"/>
+            <rect x="70" y="110" width="60" height="20" rx="2" fill="#444" opacity=".7"/>
+            <rect x="200" y="115" width="40" height="20" rx="2" fill="#444" opacity=".7"/>
+            <rect x="350" y="110" width="50" height="25" rx="2" fill="#444" opacity=".7"/>
+            <rect x="460" y="105" width="60" height="30" rx="2" fill="#444" opacity=".7"/>
+            <!-- Blue route: horizontal row 18 approx y=115 -->
+            <line x1="20" y1="55" x2="155" y2="55" stroke="#85B7EB" stroke-width="4" stroke-linecap="round"/>
+            <line x1="155" y1="55" x2="155" y2="115" stroke="#85B7EB" stroke-width="4" stroke-linecap="round"/>
+            <line x1="155" y1="115" x2="540" y2="115" stroke="#85B7EB" stroke-width="4" stroke-linecap="round"/>
+            <!-- Green route -->
+            <line x1="20" y1="55" x2="155" y2="55" stroke="#97C459" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <line x1="155" y1="55" x2="260" y2="55" stroke="#97C459" stroke-width="4" stroke-linecap="round"/>
+            <line x1="260" y1="55" x2="260" y2="25" stroke="#97C459" stroke-width="4" stroke-linecap="round"/>
+            <line x1="260" y1="25" x2="540" y2="25" stroke="#97C459" stroke-width="4" stroke-linecap="round"/>
+            <line x1="540" y1="25" x2="540" y2="115" stroke="#97C459" stroke-width="4" stroke-linecap="round"/>
+            <!-- Yellow route -->
+            <line x1="20" y1="55" x2="75" y2="55" stroke="#F7C948" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <line x1="75" y1="55" x2="75" y2="130" stroke="#F7C948" stroke-width="4" stroke-linecap="round"/>
+            <line x1="75" y1="130" x2="540" y2="130" stroke="#F7C948" stroke-width="4" stroke-linecap="round"/>
+            <!-- Start -->
+            <circle cx="20" cy="55" r="5" fill="#185FA5"/>
+            <text x="28" y="51" font-size="8" fill="var(--color-text-secondary)" font-family="var(--font-sans)">1A</text>
+            <!-- TC markers - shown/hidden by JS -->
+            <!-- TC4: 12L normal delivery, blue route close -->
+            <g id="tc4-marker" opacity="0">
+              <circle cx="310" cy="115" r="6" fill="none" stroke="#993556" stroke-width="1.5"/>
+              <circle cx="310" cy="115" r="2" fill="#993556"/>
+              <line x1="310" y1="109" x2="310" y2="95" stroke="#993556" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="315" y="93" font-size="8" fill="#993556" font-family="var(--font-sans)">TC4: 12L</text>
+            </g>
+            <!-- TC5: 8Y green route divert -->
+            <g id="tc5-marker" opacity="0">
+              <circle cx="500" cy="75" r="6" fill="none" stroke="#993556" stroke-width="1.5"/>
+              <circle cx="500" cy="75" r="2" fill="#993556"/>
+              <!-- divert path -->
+              <polyline points="540,25 540,65 500,65 500,75" fill="none" stroke="#993556" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="488" y="85" font-size="8" fill="#993556" font-family="var(--font-sans)">TC5: 8Y</text>
+            </g>
+            <!-- TC1: 28x invalid -->
+            <g id="tc1-marker" opacity="0">
+              <rect x="215" y="148" width="26" height="10" rx="2" fill="#E24B4A" opacity=".8"/>
+              <text x="218" y="156" font-size="7" fill="white" font-family="var(--font-sans)">28x ✗</text>
+            </g>
+            <!-- legend -->
+            <g transform="translate(15,140)">
+              <rect width="8" height="4" rx="1" fill="#85B7EB"/><text x="11" y="4" font-size="7" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Blue</text>
+              <rect x="38" width="8" height="4" rx="1" fill="#97C459"/><text x="49" y="4" font-size="7" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Green</text>
+              <rect x="79" width="8" height="4" rx="1" fill="#F7C948"/><text x="90" y="4" font-size="7" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Yellow</text>
+              <circle cx="120" cy="2" r="3" fill="none" stroke="#993556" stroke-width="1"/><text x="125" y="4" font-size="7" fill="var(--color-text-secondary)" font-family="var(--font-sans)">배송지</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="list-box">
+        <div class="section-note">실제 운송 시나리오 End-to-End — Blue / Green / Yellow 노선 전체 적용</div>
+        <div class="test-list">
+          <div class="test-item" id="a1"><div class="test-header" onclick="toggle('a1');showTC('tc1')"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestInvalidDestination</div><div class="test-desc">row=28, col='x' → 범위(0~24) 초과 → false</div></div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">입력</span><div class="case-body"><div class="case-input">isDestinationValid(&amp;routeMap, 28, returnInt('x'))</div><div class="case-expected">→ IsFalse 검증</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">결과</span><div class="case-body"><div class="case-input">false 반환</div><div class="case-expected">→ 배송 거부</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="a2"><div class="test-header" onclick="toggle('a2');hideTC()"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestInvalidPackageSize</div><div class="test-desc">boxSize=4 (짝수) → false</div></div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">입력</span><div class="case-body"><div class="case-input">validatePackageBox(4)</div><div class="case-expected">→ IsFalse 검증</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">결과</span><div class="case-body"><div class="case-input">false 반환</div><div class="case-expected">→ 배송 거부</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="a3"><div class="test-header" onclick="toggle('a3');hideTC()"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestInvalidPackageWeight</div><div class="test-desc">weight=2600 → MAX_CARGO_WEIGHT(2500) 초과 → false</div></div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">입력</span><div class="case-body"><div class="case-input">validatePackageWeight(2600)</div><div class="case-expected">→ IsFalse 검증</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">결과</span><div class="case-body"><div class="case-input">false 반환</div><div class="case-expected">→ 배송 거부</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="a4"><div class="test-header" onclick="toggle('a4');showTC('tc4')"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestValidPackage</div><div class="test-desc">weight=20, box=5, dest=12L → Blue 노선 배정</div></div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">C1</span><div class="case-body"><div class="case-input">validatePackageWeight(20)</div><div class="case-expected">→ IsTrue</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C2</span><div class="case-body"><div class="case-input">validatePackageBox(5)</div><div class="case-expected">→ IsTrue</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">C3</span><div class="case-body"><div class="case-input">lineToShip(dest=12L, trucks)</div><div class="case-expected">→ closestPt.row &gt;= 0</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="a5"><div class="test-header" onclick="toggle('a5');showTC('tc5')"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestMultipleValidInputs</div><div class="test-desc">weight=1000, box=1, dest=8Y × 3회 반복</div></div><span class="badge badge-pass">통과</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">1차</span><div class="case-body"><div class="case-input">trucks[3].weight=1000, dest=8Y</div><div class="case-expected">→ closestPt 유효</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">2차</span><div class="case-body"><div class="case-input">trucks[3].weight=1000, dest=8Y</div><div class="case-expected">→ closestPt 유효</div></div><span class="case-badge case-pass">통과</span></div><div class="case-row"><span class="case-num">3차</span><div class="case-body"><div class="case-input">trucks[1].weight=2000 추가 후 dest=8Y</div><div class="case-expected">→ closestPt 유효</div></div><span class="case-badge case-pass">통과</span></div></div></div>
+          <div class="test-item" id="a6"><div class="test-header" onclick="toggle('a6');hideTC()"><div class="test-pip" style="background:#993556"></div><div class="test-body"><div class="test-name">TestNormalTermination</div><div class="test-desc">0 0 x 입력 → 프로그램 정상 종료 (주석 처리됨)</div></div><span class="badge badge-skip">스킵</span><span class="chevron">▼</span></div><div class="case-list"><div class="case-row"><span class="case-num">비고</span><div class="case-body"><div class="case-input">// TEST_METHOD 주석 처리</div><div class="case-expected">→ 종료 시나리오 자동화 어려움으로 스킵</div></div><span class="case-badge" style="background:#f5e6c8;color:#7a5c00">스킵</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// NCC 대시보드 전역 함수 — template 외부에 선언하여 재진입 시 안전하게 동작
+function sw(name,el){
+  var wrap=el.closest('.wrap');
+  if(!wrap)return;
+  wrap.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  wrap.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+  el.classList.add('active');
+  var panel=wrap.querySelector('#p-'+name);
+  if(panel)panel.classList.add('active');
+}
+function toggle(id){
+  // ncc-wrap 내부에서 먼저 찾고, 없으면 document 전체에서 찾음
+  var nccWrap=document.getElementById('pm-ncc-wrap');
+  var el=(nccWrap&&nccWrap.querySelector('#'+id))||document.getElementById(id);
+  if(el)el.classList.toggle('open');
+}
+
+// 화이트박스 그리드 빌드 — 재진입 시마다 새로 빌드
+window._buildWhiteboxGrid=function(grid){
+  if(!grid)return;
+  grid.innerHTML=''; // 항상 초기화 후 재빌드
+  var bldg=new Set([
+    '1,1','1,2','1,3','1,6','1,7','1,11','1,12','1,17','1,18','1,20','1,21','1,22',
+    '2,1','2,2','2,3','2,6','2,7','2,11','2,12','2,17','2,18','2,20','2,21','2,22',
+    '6,7','6,8','7,7','7,8','7,9','8,7','8,8',
+    '7,13','7,14','8,13','8,14',
+    '11,0','11,1','12,0','12,1','12,2','13,0','13,1','13,2','14,0','14,1','15,0','15,1',
+    '12,5','12,6','13,5','13,6','16,5',
+    '12,12','12,13','12,14','12,15','13,12','13,13','13,14','13,15',
+    '12,17','13,17','14,17','15,17',
+    '12,19','12,20','13,19','13,20','14,19',
+    '21,0','21,1','21,2','21,3','22,0','22,1','22,2','22,3','23,0','23,1','23,2','23,3',
+    '21,7','22,7','23,7',
+    '21,11','22,11','21,12','22,12',
+    '21,15','21,16','22,15','22,16','21,17','22,17',
+    '21,22','22,22','21,23','22,23'
+  ]);
+  var blue=new Set(),green=new Set(),yellow=new Set();
+  for(var c=0;c<11;c++){blue.add('3,'+c);blue.add('4,'+c);blue.add('5,'+c);}
+  for(var r=5;r<18;r++){blue.add(r+',10');}
+  for(var c2=10;c2<25;c2++){blue.add('17,'+c2);blue.add('18,'+c2);}
+  for(var c3=0;c3<11;c3++){green.add('3,'+c3);}
+  for(var c4=10;c4<20;c4++){green.add('3,'+c4);green.add('4,'+c4);}
+  for(var r2=2;r2<10;r2++){green.add(r2+',19');green.add(r2+',20');}
+  for(var c5=19;c5<25;c5++){green.add('9,'+c5);}
+  for(var r3=3;r3<10;r3++){yellow.add(r3+',5');}
+  for(var c6=0;c6<25;c6++){yellow.add('9,'+c6);}
+  var hlPts=['5,5','12,0','0,12','24,24','0,0','3,4'];
+  var frag=document.createDocumentFragment();
+  for(var row=0;row<25;row++){
+    for(var col=0;col<25;col++){
+      var k=row+','+col,cell=document.createElement('div');
+      cell.className='gc';
+      if(hlPts.indexOf(k)>-1) cell.classList.add('highlight');
+      else if(bldg.has(k)) cell.classList.add('bldg');
+      else if(blue.has(k)) cell.classList.add('blue');
+      else if(green.has(k)) cell.classList.add('green');
+      else if(yellow.has(k)) cell.classList.add('yellow');
+      else cell.classList.add('empty');
+      frag.appendChild(cell);
+    }
+  }
+  grid.appendChild(frag);
+};
+
+var _currentTC=null;
+function _findEl(id){
+  var nccWrap=document.getElementById('pm-ncc-wrap');
+  return (nccWrap&&nccWrap.querySelector('#'+id))||document.getElementById(id);
+}
+function showTC(id){
+  if(_currentTC){var prev=_findEl(_currentTC);if(prev)prev.setAttribute('opacity','0');}
+  var el=_findEl(id);if(el)el.setAttribute('opacity','1');
+  _currentTC=id;
+}
+function hideTC(){
+  if(_currentTC){var prev=_findEl(_currentTC);if(prev)prev.setAttribute('opacity','0');}
+  _currentTC=null;
+}
+</script></template>
+</body>
+</html>
